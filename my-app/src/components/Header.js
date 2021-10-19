@@ -1,10 +1,10 @@
 import './header.css';
-import logo from "../images/burger-queen.png"
+import logoHeader from '../assets/logoHeader.png';
 
 const Header = () => {
     return (
     <header>
-        <img className="logo" src ={logo} alt="logo"/>
+        <img className="logoheader" src ={logoHeader} alt="logo"/>
         <nav>
             <ul>
             <li><a href="/" className="home">HOME</a></li>
