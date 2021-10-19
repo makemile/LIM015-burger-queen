@@ -1,17 +1,21 @@
+import React from 'react';
 import './home.css';
-import logo from '../images/burger-queen.png'
+import { Link } from 'react-router-dom';
+import logoHome from '../assets/burger-queen.png';
 
-const Home = () => {
-    return (
-        <div className = "home__containt">
-          <div> <img src={logo} alt="logo" /></div>
-            <div className = "button__options">
-                <button className = "btn-table">MESAS</button>
-                <button className = "btn-chef">COCINA</button>
-            </div>
-        </div>
+const Home = () => (
+  <div className="home__containt">
+    <figure>
+      <img src={logoHome} alt="logoHome" />
+    </figure>
 
-    )
-}
+    <div className="button__options">
+      <Link to="/tables">
+        <button type="button" className="btn-table">MESAS</button>
+      </Link>
+      <button type="button" className="btn-chef">COCINA</button>
+    </div>
+  </div>
+);
 
 export default Home;

@@ -1,45 +1,43 @@
-.home__containt{
-    background-color: rgba(92, 30, 11, 1);
-    height: 650px;
-    width: 100%;
-    display: flex;
-    margin: left;
-    }
-    
-    .home__containt img{
-        display: flex;
-        white-space: nowrap;
-    }
-    
-      button.btn-table  {
-        position: relative;
-        background-color: rgba(248, 234, 218, 1);
-        border-radius: 28px;
-        color: rgba(255, 136, 35, 1);
-        font-size: 40px;
-        font-family: Arial, Helvetica, sans-serif;
-        border-radius: 28px;
-        padding: 10px;
-        width: auto;
-        
-    } 
-    
-    button.btn-chef  {
-        position: relative;
-        background-color: rgba(248, 234, 218, 1);
-        border-radius: 2px solid;
-        color: rgba(255, 136, 35, 1);
-        font-size: 40px;
-        font-family: Arial, Helvetica, sans-serif;
-        border-radius: 28px;
-        padding: 10px;
-        width: auto;
-        cursor: pointer;
-        transition: all 0.5ms;
-        
-    } 
-    
-    button.btn-chef :hover  {
-        color: chartreuse;
-        
-    } 
+/* body {
+  background-color: rgba(92, 30, 11, 1); 
+} */
+.home__containt {
+  height: 650px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+figure {
+  width: 287px;
+  height: auto;
+  margin-right: 150px;
+
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+}
+.logoHome {
+  width: 190px;
+  height: auto;
+}
+.button__options {
+  display: flex;
+  flex-direction: column;
+}
+button {
+  font-weight: bold;
+  width: 321px;
+  height: 108px;
+  background-color: rgba(248, 234, 218, 1);
+  border-radius: 20px;
+  color: rgba(255, 136, 35, 1);
+  cursor: pointer;
+  font-size: 40px;
+  border: none;
+  margin-bottom: 35px;
+  font-family: 'Montserrat', sans-serif;
+}
+
