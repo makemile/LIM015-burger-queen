@@ -1,5 +1,6 @@
+import React from 'react';
 import './tables.css';
-import Header from './components/Header';
+import Header from './Header';
 
 const Tables = () => {
     return (

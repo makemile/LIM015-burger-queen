@@ -1,3 +1,4 @@
+import React from 'react';
 import "./home.css";
 import logoHome from "../assets/burger-queen.png";
 
@@ -9,7 +10,7 @@ const Home = () => {
       </figure>
       
       <div className="button__options">
-        <button className="btn-table">MESAS</button>
+         <button className="btn-table">MESAS</button>
         <button className="btn-chef">COCINA</button>
       </div>
     </div>
