@@ -1,9 +1,10 @@
 import './header.css';
+import logo from "../images/burger-queen.png"
 
 const Header = () => {
     return (
     <header>
-        <img className="logo" href="../images/burger-queen.png" alt="logo"/>
+        <img className="logo" src ={logo} alt="logo"/>
         <nav>
             <ul>
             <li><a href="/" className="home">HOME</a></li>
