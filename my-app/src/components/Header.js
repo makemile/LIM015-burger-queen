@@ -1,9 +1,10 @@
+import React from 'react';
 import './header.css';
-import logo from '../assets/burgerqueen1.png';
+import logoHeader from '../assets/logoHeader.png';
 
 const Header = () => (
   <header>
-    <img className="logo" src= {logo} alt="logo" />
+    <img className="logoheader" src={logoHeader} alt="logo" />
     <nav>
       <ul>
         <li><a href="/" className="home">HOME</a></li>
