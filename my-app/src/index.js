@@ -7,6 +7,7 @@ import firebaseConfig from "./utils/firebaseConfig";
 import { FirebaseAppProvider } from "reactfire";
 import { Suspense } from "react";
 
+
 ReactDOM.render(
   <FirebaseAppProvider firebaseConfig={firebaseConfig}>
     <Suspense fallback={<p>Cargando...</p>}>

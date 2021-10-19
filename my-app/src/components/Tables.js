@@ -1,7 +1,9 @@
 import './tables.css';
+import Header from './components/Header';
 
 const Tables = () => {
     return (
+    < Header/>,
     <section>
         <div className="tables-container">
             <div className="table1">
