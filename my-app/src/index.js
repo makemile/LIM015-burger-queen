@@ -1,12 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import firebaseConfig from "./utils/firebaseConfig";
-import { FirebaseAppProvider } from "reactfire";
-import { Suspense } from "react";
-
+import React, { Suspense } from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import { FirebaseAppProvider } from 'reactfire';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import firebaseConfig from './utils/firebaseConfig';
 
 ReactDOM.render(
   <FirebaseAppProvider firebaseConfig={firebaseConfig}>
@@ -14,7 +12,7 @@ ReactDOM.render(
       <App />
     </Suspense>
   </FirebaseAppProvider>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function
