@@ -1,6 +1,6 @@
 import React from 'react';
 import './tables.css';
-// import Header from './Header.js';
+// import Header from './Header';
 
 const Tables = () => (
   <section>
