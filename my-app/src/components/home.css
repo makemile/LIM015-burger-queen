@@ -1,6 +1,7 @@
-/* body {
+html {
+  font-family: "Montserrat";
   background-color: rgba(92, 30, 11, 1); 
-} */
+}
 .home__containt {
   height: 650px;
   width: 100%;

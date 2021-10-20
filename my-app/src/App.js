@@ -15,7 +15,7 @@ function App() {
           <Route path="/home" component={Home} />
           <Route path="/tables" component={Header} />
           <Route path="/tables" component={Tables} />
-          <Redirect path="/home" />
+          <Redirect to="/home" />
         </Switch>
       </BrowserRouter>
     </div>
