@@ -13,7 +13,9 @@ const Home = () => (
       <Link to="/tables">
         <button type="button" className="btn-table">MESAS</button>
       </Link>
+      <Link to="/kitchen">
       <button type="button" className="btn-chef">COCINA</button>
+      </Link>
     </div>
   </div>
 );
