@@ -15,7 +15,7 @@ const Home = () => (
       </Link>
       <Link to="/kitchen">
       <button type="button" className="btn-chef">COCINA</button>
-      </Link>
+       </Link>
     </div>
   </div>
 );

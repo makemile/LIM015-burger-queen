@@ -1,3 +1,4 @@
+// import { initializeApp } from "firebase/app";
 const firebaseConfig = {
   apiKey: 'AIzaSyDLbLyvmeWmcgESLcH223waNmMo9fPaPbE',
   authDomain: 'burger-queen-65484.firebaseapp.com',
@@ -8,6 +9,6 @@ const firebaseConfig = {
   measurementId: 'G-SB68MB9J1J',
 };
 
-export default firebaseConfig;
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
+export default firebaseConfig ;
+//  Initialize Firebase
+// const firebase = initializeApp(firebaseConfig);

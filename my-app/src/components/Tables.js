@@ -7,29 +7,29 @@ const Tables = () => (
     <Header />
     <section>
       <div className="tables-container">
-        <div className="table1">
+        <button type = "button" className="table1" to = '/products'>
           <p>Mesa 1</p>
-        </div>
+        </button>
 
-        <div className="table2">
+        <button type = "button" className="table2">
           <p>Mesa 2</p>
-        </div>
+        </button>
 
-        <div className="table3">
+        <button type = "button" className="table3">
           <p>Mesa 3</p>
-        </div>
+        </button>
 
-        <div className="table4">
+        <button type = "button"className="table4">
           <p>Mesa 4</p>
-        </div>
+        </button>
 
-        <div className="table5">
+        <button type ="button" className="table5">
           <p>Mesa 5</p>
-        </div>
+        </button>
 
-        <div className="table6">
+        <button type ="button" className="table6">
           <p>Mesa 6</p>
-        </div>
+        </button>
       </div>
     </section>
   </>
