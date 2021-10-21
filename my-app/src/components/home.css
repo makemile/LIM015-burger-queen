@@ -10,14 +10,11 @@ html {
 }
 
 figure {
-  width: 287px;
-  height: auto;
   margin-right: 150px;
-
 }
 
 figure img {
-  width: 100%;
+  width: 250px;
   height: auto;
 }
 .logoHome {
@@ -28,15 +25,16 @@ figure img {
   display: flex;
   flex-direction: column;
 }
-button {
+.btn-table,
+.btn-chef {
   font-weight: bold;
-  width: 321px;
-  height: 108px;
+  width: 250px;
+  height: 110px;
   background-color: rgba(248, 234, 218, 1);
   border-radius: 20px;
   color: rgba(255, 136, 35, 1);
   cursor: pointer;
-  font-size: 40px;
+  font-size: 3.0rem;
   border: none;
   margin-bottom: 35px;
   font-family: 'Montserrat', sans-serif;

@@ -1,7 +1,6 @@
 html {
   font-family: "Montserrat";
   margin: 1em 20%;
-  /* background-color: #F3F4F6;  */
 }
 header {
   position: fixed;
@@ -12,13 +11,9 @@ header {
   left: 0;
   background: #5c1e0b;
 }
-img {
+.logoheader {
   width: 50px;
   height: auto;
-  padding: 0;
-  margin: 0;
-}
-.logoheader {
   float: left;
   font-size: 3em;
   margin: 0;

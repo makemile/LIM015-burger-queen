@@ -10,8 +10,6 @@ import PedidosPorEntregar from './components/Pedidos_Por_Entregar';
 import Products from './components/Products';
 import PageNotFound from './components/PageNotFound';
 
-
-
 function App() {
   return (
     <div className="app">
@@ -23,7 +21,7 @@ function App() {
           <Route exact path="/orders" component={PedidosPorEntregar} />
           <Route exact path="/products" component={Products} />
           <Route component={PageNotFound} />
-          <Redirect to="/home" /> 
+          <Redirect to="/home" />
         </Switch>
       </BrowserRouter>
     </div>
