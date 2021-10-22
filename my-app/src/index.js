@@ -1,17 +1,16 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { FirebaseAppProvider } from 'reactfire';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import firebaseConfig from './utils/firebaseConfig';
+// import firebaseConfig from './utils/firebaseConfig';
 
 ReactDOM.render(
-  <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+  
     <Suspense fallback={<p>Cargando...</p>}>
       <App />
-    </Suspense>
-  </FirebaseAppProvider>,
+    </Suspense>,
+  
   document.getElementById('root'),
 );
 

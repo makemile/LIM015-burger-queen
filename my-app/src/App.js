@@ -1,4 +1,5 @@
 import React from 'react';
+// import firebaseConfig from '../src/utils/firebaseConfig'
 import './App.css';
 import {
   Switch, Route, BrowserRouter, Redirect,
@@ -7,7 +8,7 @@ import Home from './components/Home';
 import Tables from './components/Tables';
 import Cocina from './components/Cocina';
 import PedidosPorEntregar from './components/Pedidos_Por_Entregar';
-import Products from './components/Products';
+import ListeProducts from './components/ListeProducts';
 import PageNotFound from './components/PageNotFound';
 
 
@@ -18,12 +19,12 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/home" component={Home} />
-          <Route exact path="/tables" component={Tables} />
+          <Route exact path="/tables"component={Tables} />
           <Route exact path="/kitchen" component={Cocina} />
           <Route exact path="/orders" component={PedidosPorEntregar} />
-          <Route exact path="/products" component={Products} />
-          <Route component={PageNotFound} />
+           <Route path="/ProductsListeCont" component={ListeProducts} />
           <Redirect to="/home" /> 
+          <Route component={PageNotFound} />
         </Switch>
       </BrowserRouter>
     </div>

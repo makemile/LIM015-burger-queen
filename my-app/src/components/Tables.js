@@ -1,38 +1,54 @@
 import React from 'react';
+import { useEffect, useState } from "react";
 import './tables.css';
 import Header from './Header';
+import { db } from '../utils/firebaseConfig';
 
-const Tables = () => (
-  <>
-    <Header />
-    <section>
-      <div className="tables-container">
-        <div className="table1">
-          <p>Mesa 1</p>
-        </div>
+const Tables = () => {
+  const [data, setData] = useState([]);
+  useEffect(()=>{
+    
+    db.collection('Table')
+    .get()
+    .then(querySnapshot => {
+      
+      const Table = [];
+      querySnapshot.forEach(doc =>{
+        Table.push(doc.data());
+        
+      });
+      setData([...Table]);
+  
+    })
 
-        <div className="table2">
-          <p>Mesa 2</p>
-        </div>
+  }, []);
 
-        <div className="table3">
-          <p>Mesa 3</p>
-        </div>
+  return (
+    <>
+    
+     <Header/>
+        {data.length ? (
+          data.map(Table => (
+            
+            <section>
+            <grid  key = {Table.id} className="tables-container">
+       </grid>
+       </section> 
+          ))
+        ) : (
+<p>hola</p>
 
-        <div className="table4">
-          <p>Mesa 4</p>
-        </div>
+    )}
+     
+            
+</>        
+      
+    
+  );
 
-        <div className="table5">
-          <p>Mesa 5</p>
-        </div>
+}
 
-        <div className="table6">
-          <p>Mesa 6</p>
-        </div>
-      </div>
-    </section>
-  </>
-);
+
+
 
 export default Tables;
