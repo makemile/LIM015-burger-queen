@@ -8,7 +8,7 @@ async function getLunch() {
   // console.log(lunchCollection);
   // return lunchCollection.docs.map((doc) => ({ id: doc.id, docdata: doc.data() }));
   lunchCollection.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data()}`);
+    console.log(doc.id, doc.data());
   });
 }
 getLunch();
