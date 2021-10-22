@@ -6,13 +6,6 @@ section {
     display: flex;
     justify-content: center;
 }
-.tables-container p {
-    font-size: 1.8rem;
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 3.0rem;
-}
 
 .tables-container > *{
     padding: 10px;
@@ -27,12 +20,7 @@ section {
     margin-top: 180px;
 }
 
-.table1,
-.table2,
-.table3,
-.table4,
-.table5,
-.table6 {
+.table-button {
     width: 250px;
     height: 110px;
     background: #FF8823;

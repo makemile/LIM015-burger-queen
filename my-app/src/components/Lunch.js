@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import { collection } from 'firebase/firestore';
 import { collection, onSnapshot } from 'firebase/firestore'; // Importar Firestore
 // import querySnapshot from '../utils/firestore';
-import { db } from '../utils/firebaseConfig';
+import db from '../utils/firebaseConfig';
 
 // console.log(lunchCollection);
 // return lunchCollection.docs.map((doc) => ({ id: doc.id, docdata: doc.data() }));
