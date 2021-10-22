@@ -23,30 +23,23 @@ function Products() {
   const [isVisibleBf, setVisibleBf] = useState(true); // contenedor de desayuno visible
   const [isVisibleLunch, setVisibleLunch] = useState(false); // contenedor de almuerzo oculto
 
-  function changeBfValue() {
-    setVisibleBf(!isVisibleBf);
-  }
+  // function changeBfValue() {
+  //   setVisibleBf(!isVisibleBf);
+  // }
 
-  function chageLunchValue() {
+  // function chageLunchValue() {
+  //   setVisibleLunch(!isVisibleLunch);
+  // }
+
+  function changeValue() {
+    setVisibleBf(!isVisibleBf);
     setVisibleLunch(!isVisibleLunch);
   }
 
-  // function changeValue() {
-  //   // si bf oculto
-  //   if (setVisibleBf(!isVisibleBf)) {
-  //     // mostrar almuerzo
-  //     setVisibleLunch(isVisibleLunch);
-  //     setVisibleBf(!isVisibleBf);
-  //   } else {
-  //     setVisibleLunch(!isVisibleLunch);
-  //     setVisibleBf(isVisibleBf);
-  //   }
-  // }
-
   return (
     <>
-      <button type="button" className="btn-breakfast" onClick={changeBfValue}>DESAYUNO</button>
-      <button type="button" className="btn-lunch" onClick={chageLunchValue}>ALMUERZO</button>
+      <button type="button" className="btn-breakfast" onClick={changeValue}>DESAYUNO</button>
+      <button type="button" className="btn-lunch" onClick={changeValue}>ALMUERZO</button>
 
       <div style={{ display: isVisibleBf ? 'block' : 'none' }}>Contenido de desayuno</div>
       <div style={{ display: isVisibleLunch ? 'block' : 'none' }}>Contenido de almuerzo</div>
