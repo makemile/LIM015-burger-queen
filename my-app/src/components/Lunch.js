@@ -1,23 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // import { collection } from 'firebase/firestore';
-import querySnapshot from '../utils/firestore';
+import { collection, onSnapshot } from 'firebase/firestore'; // Importar Firestore
+// import querySnapshot from '../utils/firestore';
 import { db } from '../utils/firebaseConfig';
 
-async function getLunch() {
-  const lunchCollection = await querySnapshot(db, 'lunch');
-  // console.log(lunchCollection);
-  // return lunchCollection.docs.map((doc) => ({ id: doc.id, docdata: doc.data() }));
-  lunchCollection.forEach((doc) => {
-    console.log(doc.id, doc.data());
-  });
-}
-getLunch();
+// console.log(lunchCollection);
+// return lunchCollection.docs.map((doc) => ({ id: doc.id, docdata: doc.data() }));
+// async function getLunch() {
+//   const lunchData = await querySnapshot(db, 'lunch');
+//   lunchData.docs.forEach((doc) => (`${doc.id}, ${doc.data()}`));
+// }
 
 function Lunch() {
-  // const getLunch = async () => {
-  //   const infoUser = await querySnapshot(db, 'user');
-  //   return infoUser.docs.map((doc) => ({ id: doc.id, docdata: doc.data() }));
-  // };
+  // const [products, getProducts] = useState([]);
+
+  // useEffect(() => {
+  //   getLunch().then((result) => getProducts(result));
+  // }, [products]);
+
+  const [lunch, setLunch] = useState([]);
+  console.log(lunch);
+
+  useEffect(() => {
+    onSnapshot(collection(db, 'lunch'), (snapshot) => {
+      setLunch(snapshot.docs.map((doc) => doc.data()));
+    });
+  }, []);
+  lunch.map((product) => console.log(product.name));
 
   return (
     <section className="menu-section-lunch">
