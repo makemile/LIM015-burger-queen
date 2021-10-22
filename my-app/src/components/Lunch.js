@@ -1,9 +1,24 @@
 import React from 'react';
-import { collection } from 'firebase/firestore';
+// import { collection } from 'firebase/firestore';
+import querySnapshot from '../utils/firestore';
+import { db } from '../utils/firebaseConfig';
+
+async function getLunch() {
+  const lunchCollection = await querySnapshot(db, 'lunch');
+  // console.log(lunchCollection);
+  // return lunchCollection.docs.map((doc) => ({ id: doc.id, docdata: doc.data() }));
+  lunchCollection.forEach((doc) => {
+    console.log(`${doc.id} => ${doc.data()}`);
+  });
+}
+getLunch();
 
 function Lunch() {
-  const ref = collection('lunch');
-  console.log(ref);
+  // const getLunch = async () => {
+  //   const infoUser = await querySnapshot(db, 'user');
+  //   return infoUser.docs.map((doc) => ({ id: doc.id, docdata: doc.data() }));
+  // };
+
   return (
     <section className="menu-section-lunch">
 
