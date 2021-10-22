@@ -1,5 +1,28 @@
 import React from 'react';
+// import { collection, onSnapshot } from 'firebase/firestore'; // Importar Firestore
 // import { useFirebaseApp, useFirestoreCollection } from 'reactfire';
+
+// const [lunch, setLunch] = useState([]);
+// console.log(lunch);
+// console.log(...lunch);
+
+// useEffect(() => {
+//   onSnapshot(collection(db, 'lunch'), (snapshot) => {
+//     setLunch(snapshot.docs.map((doc) => doc.data()));
+//   });
+// }, []);
+
+// lunch.map((product) => console.log(product.name));
+// useState(() => {
+//   const q = query(collection(db, "users"));
+//   onSnapshot(q, (querySnapshot) => {
+//     const updateUser = [];
+//     querySnapshot.forEach((doc) => {
+//       updateUser.push(doc.data());
+//     });
+//     setUsers([...updateUser]);
+//   });
+// }, []);
 
 function Breakfast() {
   return (
