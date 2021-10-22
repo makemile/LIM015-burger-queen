@@ -1,3 +1,9 @@
+.menu-section {
+    width: 100%;
+    display: block;
+    /* display: grid;
+    grid-template-columns: 745px 1fr; */
+}
 .menu-buttons-container {
     display: flex;
     justify-content: flex-start;

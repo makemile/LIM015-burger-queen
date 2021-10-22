@@ -1,6 +1,9 @@
 import React from 'react';
+import { collection } from 'firebase/firestore';
 
 function Lunch() {
+  const ref = collection('lunch');
+  console.log(ref);
   return (
     <section className="menu-section-lunch">
 
@@ -18,13 +21,13 @@ function Lunch() {
             <h3>Hamburguesa Doble</h3>
           </div>
 
-          <div className="select-opt">
-            <select name="burger-types">
+          {/* <div className="select-opt">
+            <select name="burger-types" defaultValue={'DEFAULT'}>
               <option value="value1">res</option>
               <option value="value2" selected>vegetariana</option>
               <option value="value3">pollo</option>
             </select>
-          </div>
+          </div> */}
 
           <div className="additions">
             <p><strong>Agregados S/.1</strong></p>
@@ -52,13 +55,13 @@ function Lunch() {
             <h3>Hamburguesa Doble</h3>
           </div>
 
-          <div className="select-opt">
+          {/* <div className="select-opt">
             <select name="burger-types">
               <option value="value1">res</option>
               <option value="value2" selected>vegetariana</option>
               <option value="value3">pollo</option>
             </select>
-          </div>
+          </div> */}
 
           <div className="additions">
             <p><strong>Agregados S/.1</strong></p>

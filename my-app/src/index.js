@@ -4,7 +4,8 @@ import './index.css';
 import { FirebaseAppProvider } from 'reactfire';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import firebaseConfig from './utils/firebaseConfig';
+import { firebaseConfig } from './utils/firebaseConfig';
+import 'firebase/performance';
 
 ReactDOM.render(
   <FirebaseAppProvider firebaseConfig={firebaseConfig}>

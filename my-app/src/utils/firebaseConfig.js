@@ -1,4 +1,7 @@
-const firebaseConfig = {
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore'; // Importar Firestore
+
+export const firebaseConfig = {
   apiKey: 'AIzaSyDLbLyvmeWmcgESLcH223waNmMo9fPaPbE',
   authDomain: 'burger-queen-65484.firebaseapp.com',
   projectId: 'burger-queen-65484',
@@ -8,6 +11,7 @@ const firebaseConfig = {
   measurementId: 'G-SB68MB9J1J',
 };
 
-export default firebaseConfig;
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
+// Inicializar firebase
+const app = initializeApp(firebaseConfig);
+// Inicializa Cloud Firestore
+export const db = getFirestore(app);

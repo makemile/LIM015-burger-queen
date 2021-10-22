@@ -1,4 +1,5 @@
 import React from 'react';
+// import { useFirebaseApp, useFirestoreCollection } from 'reactfire';
 
 function Breakfast() {
   return (
