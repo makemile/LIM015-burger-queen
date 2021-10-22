@@ -1,4 +1,7 @@
 // import { initializeApp } from "firebase/app";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyDLbLyvmeWmcgESLcH223waNmMo9fPaPbE',
   authDomain: 'burger-queen-65484.firebaseapp.com',
@@ -9,6 +12,8 @@ const firebaseConfig = {
   measurementId: 'G-SB68MB9J1J',
 };
 
-export default firebaseConfig ;
+firebase.initializeApp(firebaseConfig);
+
+export const db = firebase.firestore();
 //  Initialize Firebase
 // const firebase = initializeApp(firebaseConfig);

@@ -8,7 +8,7 @@ import Home from './components/Home';
 import Tables from './components/Tables';
 import Cocina from './components/Cocina';
 import PedidosPorEntregar from './components/Pedidos_Por_Entregar';
-import Products from './components/ListeProducts';
+import ListeProducts from './components/ListeProducts';
 import PageNotFound from './components/PageNotFound';
 
 
@@ -19,10 +19,10 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/home" component={Home} />
-          <Route exact path="/tables" component={Tables} />
+          <Route exact path="/tables"component={Tables} />
           <Route exact path="/kitchen" component={Cocina} />
           <Route exact path="/orders" component={PedidosPorEntregar} />
-          <Route exact path="/products" component={Products} />
+           <Route path="/ProductsListeCont" component={ListeProducts} />
           <Redirect to="/home" /> 
           <Route component={PageNotFound} />
         </Switch>
