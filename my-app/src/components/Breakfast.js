@@ -18,8 +18,8 @@ function Breakfast() {
 
   return (
     <>
-    {breakfast.map((product) => (
-    <div className="container-breakfast">
+    {breakfast.map((product, index) => (
+    <div className="container-breakfast" key={index}>
       <div className="content-breakfast">
         <div className="visual-breakfast">
           <figure className="breakfast-figure">
