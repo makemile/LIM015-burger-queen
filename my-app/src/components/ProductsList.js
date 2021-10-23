@@ -56,6 +56,7 @@ function Products() {
         <section className="menu-section-breakfast" style={{ display: isVisibleBf ? 'block' : 'none' }}>
           <Breakfast/>
         </section>
+        
       {/* ALMUERZO */}
         <div style={{ display: isVisibleLunch ? 'block' : 'none' }}>
           Contenido de almuerzo

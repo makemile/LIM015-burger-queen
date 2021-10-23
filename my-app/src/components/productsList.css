@@ -17,9 +17,25 @@
   
   .menu-section-breakfast {
     display: grid;
-    grid-template-columns: 340px 340px;
+    grid-template-columns: 320px 320px;
     gap: 15px;
     width: 771px;
     height: auto;
     justify-content: flex-start;
+  }
+
+  .menu-buttons-container {
+    display: flex;
+    margin-bottom: 45px;
+  }
+
+  .menu-buttons-container button {
+    background-color: rgba(255, 136, 35, 1);
+    width: 167px;
+    height: 60px;
+    margin-right: 30px;
+  }
+
+  .menu-buttons-container button:hover {
+    background-color: #00892F;
   }

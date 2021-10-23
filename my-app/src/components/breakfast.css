@@ -12,16 +12,16 @@ html {
 } */
 
 .container-breakfast {
-  width: 340px;
-  height: 300px;
+  width: 310px;
+  height: 280px;
   background: #ffffff;
   box-shadow: 15px 19px 28px rgba(0, 0, 0, 0.06);
   border-radius: 30px;
 }
 .content-breakfast {
-  width: 310px;
   margin: 0 auto;
   padding-top: 15px;
+  width: 260px;
 }
 .visual-breakfast {
   display: flex;
