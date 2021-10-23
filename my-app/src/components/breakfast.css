@@ -10,7 +10,14 @@ html {
 /* body {
     background: #E5E5E5;
 } */
-
+.breakfast-grid {
+    display: grid;
+    grid-template-columns: 320px 320px;
+    gap: 15px;
+    width: 771px;
+    height: auto;
+    justify-content: flex-start;
+}
 .container-breakfast {
   width: 310px;
   height: 280px;

@@ -11,17 +11,25 @@
       background: #E5E5E5;
   } */
 
-  .products-section {
+  .products-section { /*PROBANDO GRIDS*/
     margin-top: 105px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  .menu-section { /*PROBANDO GRIDS*/
+    grid-column: 1;
+    grid-row: 1;
+  
   }
   
   .menu-section-breakfast {
-    display: grid;
-    grid-template-columns: 320px 320px;
+    grid-column: 1;
+    /* grid-template-columns: 320px 320px;
     gap: 15px;
     width: 771px;
     height: auto;
-    justify-content: flex-start;
+    justify-content: flex-start; */
   }
 
   .menu-buttons-container {

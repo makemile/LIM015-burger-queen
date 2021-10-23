@@ -25,8 +25,7 @@ function Products() {
       {/* BOTONES */}
         <section className="menu-section">
           <div className="menu-buttons-container">
-            <button type="button" className="btn-breakfast" onClick={changeValue}>{ isVisibleBf ? "DESAYUNO" : "ALMUERZO"}
-</button>
+            <button type="button" className="btn-breakfast" onClick={changeValue}>DESAYUNO</button>
             <button type="button" className="btn-lunch" onClick={changeValue}>ALMUERZO</button>
           </div>
         </section>
