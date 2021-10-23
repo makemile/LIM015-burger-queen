@@ -16,6 +16,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+    justify-items: baseline; /*lo justificó todo hacia la izquierda*/
   }
   .menu-section { /*PROBANDO GRIDS*/
     grid-column: 1;
@@ -23,13 +24,31 @@
   
   }
   
-  .menu-section-breakfast {
+  .menu-section-breakfast { /*AQUI APARECE EL SCROLL*/
     grid-column: 1;
+    height: 480px; /*Prueba**/
+    overflow: auto; /*Aparece la barra para subir y bajar*/
     /* grid-template-columns: 320px 320px;
     gap: 15px;
     width: 771px;
     height: auto;
     justify-content: flex-start; */
+  }
+  .menu-section-breakfast::-webkit-scrollbar { /*ESTILOS PARA SCROLL*/
+    width: 12px;
+    background:  white;
+    border-radius: 0 2rem 2rem 0;
+  }
+  .menu-section-breakfast::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+
+  .menu-section-breakfast::-webkit-scrollbar-thumb { /*ESTILOS PARA SCROLL*/
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background:#FF8823;
   }
 
   .menu-buttons-container {
