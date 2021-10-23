@@ -2,6 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore'; // Importar Firestore
 import db from '../utils/firebaseConfig';
 // import { useFirebaseApp, useFirestoreCollection } from 'reactfire';
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+// PRUEBA PARA TRAER IMAGENES DE STORAGE
+const storage = getStorage();
+getDownloadURL(ref(storage, 'images/cafe-leche.png'))
+  .then((url) => {
+  const img = document.getElementById('myimg');
+  img.setAttribute('src', url);
+  console.log(img, 'hola')
+})
+.catch((error) => {
+ console.log(error)
+});
 
 function Breakfast() {
   // Data de desayuno
