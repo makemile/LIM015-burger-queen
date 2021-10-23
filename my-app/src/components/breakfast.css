@@ -11,15 +11,6 @@ html {
     background: #E5E5E5;
 } */
 
-.menu-section-breakfast {
-  display: grid;
-  grid-template-columns: 340px 340px;
-  gap: 15px;
-  width: 771px;
-  height: auto;
-  justify-content: flex-start;
-}
-
 .container-breakfast {
   width: 340px;
   height: 300px;
