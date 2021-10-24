@@ -32,7 +32,7 @@ const Tables = () => {
 
 
   const ClickOrders = (e) => {
-    if(db.collection('Table').doc().update({status:true})){
+    if(db.collection('Table').doc().update({status:false})){
       console.log(e)
     }
 
@@ -45,11 +45,11 @@ const Tables = () => {
       
          {data.map((Table) => (
         
-          <section>
-            <div key = {Table.name}className="tables-container">
+          <section key = {Table.name}>
+            <div className="tables-container">
              {console.log(Table.id,41)}
 
-                < LinkButton to = '/order'
+                < LinkButton to = {`/order/${Table.id}`}
                   type="button"
                   className="table-button"
                   onClick={(e) => { 
@@ -63,6 +63,7 @@ const Tables = () => {
 ))
       }) 
     </>
-);
+)
 }
+
 export default Tables;
