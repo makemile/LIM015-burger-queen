@@ -21,17 +21,15 @@ const Tables = () => {
   return (
     <>
       <Header />
-
+      <section>
+        <grid className="tables-container">
       {data.length ? (
-        data.map((Table) => (
-
-          <section>
-            <grid key={Table.id} className="tables-container">
-              <button type="button" className="table-button">{Table.name}</button>
-            </grid>
-          </section>
+        data.map((Table, index) => (
+              <button key={index} type="button" className="table-button">{Table.name}</button>
         ))
       ) : (<p>hola</p>)}
+        </grid>
+      </section>
     </>
   );
 };
