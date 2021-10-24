@@ -7,7 +7,7 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
 const storage = getStorage();
 getDownloadURL(ref(storage, 'images/cafe-leche.png'))
   .then((url) => {
-  const img = document.getElementById('myimg');
+  const img = document.getElementsByClassName('product-img');
   img.setAttribute('src', url);
   console.log(img, 'hola')
 })
@@ -34,7 +34,7 @@ function Breakfast() {
         <div className="content-breakfast">
           <div className="visual-breakfast">
             <figure className="breakfast-figure">
-              <img src={product.img} alt={product.name} />
+              <img className="product-img" src={product.img} alt={product.name} />
               <span className="breakfast-price"><strong>S/.{product.price}.00</strong></span>
             </figure>
           </div>
