@@ -10,12 +10,22 @@ function Products() {
   // Eventos para los botones
   const [isVisibleBf, setVisibleBf] = useState(true); // contenedor de desayuno visible
   const [isVisibleLunch, setVisibleLunch] = useState(false); // contenedor de almuerzo oculto
-
-  function changeValue() {
-    setVisibleBf(!isVisibleBf);
-    setVisibleLunch(!isVisibleLunch);
+  // function changeValue() {
+  //   setVisibleBf(!isVisibleBf);
+  //   setVisibleLunch(!isVisibleLunch);
+  // }
+  function BreakfastBtn(e) {
+    if (e.target.className === 'btn-breakfast') {
+      setVisibleBf(true)
+      setVisibleLunch(false);
+    }
   }
-
+  function LunchBtn(e) {
+    if (e.target.className === 'btn-lunch') {
+      setVisibleBf(false)
+      setVisibleLunch(true);
+    }
+  }
   return (
     <>
       {/* SECCION HEADER */}
@@ -25,8 +35,8 @@ function Products() {
       {/* BOTONES */}
         <section className="menu-section">
           <div className="menu-buttons-container">
-            <button type="button" className="btn-breakfast" onClick={changeValue}>DESAYUNO</button>
-            <button type="button" className="btn-lunch" onClick={changeValue}>ALMUERZO</button>
+            <button type="button" className="btn-breakfast" onClick={BreakfastBtn}>DESAYUNO</button>
+            <button type="button" className="btn-lunch" onClick={LunchBtn}>ALMUERZO</button>
           </div>
         </section>
 

@@ -14,10 +14,10 @@
   .products-section { /*PROBANDO GRIDS*/
     margin-top: 105px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 690px 1fr; /*690 de prueba*/
     grid-template-rows: 1fr;
     justify-items: baseline; /*lo justificó todo hacia la izquierda*/
-    margin-left: 30px;
+    margin-left: 20px;
   }
   .menu-section { /*PROBANDO GRIDS*/
     grid-column: 1;

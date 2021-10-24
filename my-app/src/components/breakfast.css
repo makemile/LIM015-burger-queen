@@ -12,7 +12,7 @@ html {
 } */
 .breakfast-grid {
     display: grid;
-    grid-template-columns: 320px 320px;
+    grid-template-columns: 310px 310px;
     gap: 15px;
     width: 670px;
     height: auto;
