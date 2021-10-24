@@ -4,7 +4,7 @@ import Header from './Header';
 const PageNotFound = () => (
   <>
     <Header />
-    <div className="PageNotFound">
+    <div className='PageNotFound'>
       ERROR 404
     </div>
   </>
