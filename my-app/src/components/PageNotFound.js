@@ -6,6 +6,21 @@ const PageNotFound = () => (
     <Header/>
     <div className = "PageNotFound">
         ERROR 404
+        ERROR 404
+        ERROR 404
+        ERROR 404
+        ERROR 404
+        ERROR 404
+        ERROR 404
+        ERROR 404
+        ERROR 404
+
+        ERROR 404
+        ERROR 404
+        ERROR 404
+        ERROR 404
+        ERROR 404
+        
         </div>
         </>
 )
