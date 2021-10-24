@@ -8,7 +8,7 @@ import Home from './components/Home';
 import Tables from './components/Tables';
 import Cocina from './components/Cocina';
 import PedidosPorEntregar from './components/Pedidos_Por_Entregar';
-import ProductsList from './components/ProductsList';
+import Orders from './components/Orders';
 import PageNotFound from './components/PageNotFound';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
           <Route exact path="/tables" component={Tables} />
           <Route exact path="/kitchen" component={Cocina} />
           <Route exact path="/orders" component={PedidosPorEntregar} />
-          <Route path="/products" component={ProductsList} />
+          <Route path="/products" component={Orders} />
           <Redirect to="/home" />
           <Route component={PageNotFound} />
         </Switch>

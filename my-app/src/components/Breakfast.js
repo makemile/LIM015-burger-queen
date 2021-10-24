@@ -45,7 +45,6 @@ function Breakfast() {
           <button type="button">AGREGAR</button>
         </div>
       </div>
-   
     ))}
     </main>
     </>

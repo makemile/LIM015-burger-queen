@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from './Header';
-import './productsList.css';
+import './orders.css';
 import Breakfast from './Breakfast';
 import './breakfast.css';
 // import Lunch from './Lunch';
@@ -10,10 +10,7 @@ function Products() {
   // Eventos para los botones
   const [isVisibleBf, setVisibleBf] = useState(true); // contenedor de desayuno visible
   const [isVisibleLunch, setVisibleLunch] = useState(false); // contenedor de almuerzo oculto
-  // function changeValue() {
-  //   setVisibleBf(!isVisibleBf);
-  //   setVisibleLunch(!isVisibleLunch);
-  // }
+
   function BreakfastBtn(e) {
     if (e.target.className === 'btn-breakfast') {
       setVisibleBf(true)
