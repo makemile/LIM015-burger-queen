@@ -9,6 +9,7 @@ import './tables.css';
 import { db } from '../utils/firebaseConfig';
 import LinkButton from './ButtonLink';
 import { ProductsBurger, ProductsLunch } from './Lunch';
+import { PurchaseOrder } from './PurchaseOrder'
 //PARTE KENGYA
 
 // ----------------- ESTRUCTURA PARA VISTA MESAS ---------------- //
@@ -34,12 +35,13 @@ export function Tables() {
     })
   }, []);
 
-  const ClickOrders = (e) => {
-    if(db.collection('Table').doc().update({status:false})) {
-      console.log(e)
+  const ClickOrders = () => {
+    if(data.status == true) {
+      data.status = false;
     }
-  };
-
+    console.log(data)
+  }
+  
   return (
     <>
       <Header />
@@ -49,13 +51,11 @@ export function Tables() {
          {data.map((Table) => (
            <>
              {console.log(Table.id,41)}
-                <LinkButton to = {`/order/${Table.id}`}
+                <LinkButton to={`/order/${Table.id}`}
                   type="button"
-                  key = {Table.name}
+                  key={Table.name}
                   className="table-button"
-                  onClick={(e) => { 
-                  ClickOrders(e)
-                  }}
+                  onClick={ClickOrders}
                 >
                 {Table.name}
                 </LinkButton>
@@ -109,6 +109,11 @@ export function Products() {
         <section className="lunch-section-breakfast" style={{ display: isVisibleLunch ? 'block' : 'none' }}>
           <ProductsBurger/>
           <ProductsLunch/>
+        </section>
+
+      {/* TABLA DE DETALLES DE LA ORDEN */}
+        <section className="purchase-orders-section">
+          <PurchaseOrder/>
         </section>
       </main>
     </>
