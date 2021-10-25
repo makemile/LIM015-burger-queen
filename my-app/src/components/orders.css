@@ -25,7 +25,9 @@
   
   }
   
-  .menu-section-breakfast { /*AQUI APARECE EL SCROLL*/
+  /******************SECCION BREAKFAST*********************/
+  .menu-section-breakfast,
+  .lunch-section-breakfast { /*AQUI APARECE EL SCROLL*/
     grid-column: 1;
     height: 480px; /*Prueba**/
     overflow: auto; /*Aparece la barra para subir y bajar*/
@@ -35,23 +37,26 @@
     height: auto;
     justify-content: flex-start; */
   }
-  .menu-section-breakfast::-webkit-scrollbar { /*ESTILOS PARA SCROLL*/
+  .menu-section-breakfast::-webkit-scrollbar,
+  .lunch-section-breakfast::-webkit-scrollbar { /*ESTILOS PARA SCROLL*/
     width: 12px;
     background:  white;
     border-radius: 0 2rem 2rem 0;
   }
-  .menu-section-breakfast::-webkit-scrollbar-track {
+  .menu-section-breakfast::-webkit-scrollbar-track, 
+  .lunch-section-breakfast::-webkit-scrollbar-track {
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
  
-
-  .menu-section-breakfast::-webkit-scrollbar-thumb { /*ESTILOS PARA SCROLL*/
+  .menu-section-breakfast::-webkit-scrollbar-thumb,
+  .lunch-section-breakfast::-webkit-scrollbar-thumb { /*ESTILOS PARA SCROLL*/
     -webkit-border-radius: 10px;
     border-radius: 10px;
     background:#FF8823;
   }
 
+ /******************SECCION LUNCH *********************/
   .menu-buttons-container {
     display: flex;
     margin-bottom: 45px;

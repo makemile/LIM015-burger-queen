@@ -4,7 +4,7 @@ import './orders.css';
 import Breakfast from './Breakfast';
 import './breakfast.css';
 // import Lunch from './Lunch';
-// import './lunch.css';
+import './lunch.css';
 import './tables.css';
 import { db } from '../utils/firebaseConfig';
 import LinkButton from './ButtonLink';
@@ -106,10 +106,10 @@ export function Products() {
         </section>
 
       {/* ALMUERZO */}
-        <div style={{ display: isVisibleLunch ? 'block' : 'none' }}>
+        <section className="lunch-section-breakfast" style={{ display: isVisibleLunch ? 'block' : 'none' }}>
           <ProductsBurger/>
           <ProductsLunch/>
-        </div>
+        </section>
       </main>
     </>
   );
