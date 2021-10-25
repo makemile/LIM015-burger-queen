@@ -6,31 +6,29 @@ import {
 } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
-import Tables from './components/Orders';
-import Orders from './components/Orders';
+import { Products, Tables } from './components/Orders';
 import Cocina from './components/Cocina';
 import PedidosPorEntregar from './components/Pedidos_Por_Entregar';
 import PageNotFound from './components/PageNotFound';
-import {ProductsLunch, ProductsBurger} from './components/Lunch';
+// import {ProductsLunch, ProductsBurger} from './components/Lunch';
 
 
 function App() {
   return (
+    <>
     <div className="app">
       <BrowserRouter>
         <Switch>
         <Route exact path="/order/:id">
           <Header/>
-          <ProductsLunch/>
-          <ProductsBurger/>
+          <Products/>
             </Route>
           <Route exact path="/home" component={Home} /> 
 
           {/* <Route path="/tables"component={Tables}/> */}
-          <Route exact path="/order/"component={Orders}>
+          <Route exact path="/order/"component={Products}>
             <Tables/>
-            <ProductsLunch/>
-            <ProductsBurger/>
+            <Products/>
           </Route>
              
           <Route exact path="/kitchen" component={Cocina} />
@@ -42,6 +40,7 @@ function App() {
         </Switch>
       </BrowserRouter>
     </div>
+    </>
   );
 }
 

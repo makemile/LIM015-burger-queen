@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore'; // Importar Firestore
-import db from '../utils/firebaseConfig';
+import { db } from '../utils/firebaseConfig';
 
 function Breakfast() {
   // Data de desayuno
