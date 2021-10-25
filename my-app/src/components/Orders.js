@@ -8,7 +8,7 @@ import './breakfast.css';
 import './tables.css';
 import { db } from '../utils/firebaseConfig';
 import LinkButton from './ButtonLink';
-
+import { ProductsBurger, ProductsLunch } from './Lunch';
 //PARTE KENGYA
 
 // ----------------- ESTRUCTURA PARA VISTA MESAS ---------------- //
@@ -44,12 +44,14 @@ export function Tables() {
     <>
       <Header />
       {/* Grilla de mesas */}
+      <section>
+      <div className="tables-container">
          {data.map((Table) => (
-          <section key = {Table.name}>
-            <div className="tables-container">
+           <>
              {console.log(Table.id,41)}
                 <LinkButton to = {`/order/${Table.id}`}
                   type="button"
+                  key = {Table.name}
                   className="table-button"
                   onClick={(e) => { 
                   ClickOrders(e)
@@ -57,9 +59,10 @@ export function Tables() {
                 >
                 {Table.name}
                 </LinkButton>
-            </div>
-          </section>
+            </>
         ))}
+         </div>
+      </section>
     </>
   )
 };
@@ -104,7 +107,8 @@ export function Products() {
 
       {/* ALMUERZO */}
         <div style={{ display: isVisibleLunch ? 'block' : 'none' }}>
-          Contenido de almuerzo
+          <ProductsBurger/>
+          <ProductsLunch/>
         </div>
       </main>
     </>

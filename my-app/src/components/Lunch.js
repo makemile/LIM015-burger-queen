@@ -4,7 +4,6 @@ import { db } from "../utils/firebaseConfig";
 
 
 
-
 export const ProductsBurger = () => {
 
   const [data, setDate] = useState([]);

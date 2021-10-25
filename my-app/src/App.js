@@ -19,22 +19,31 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <Switch>
+        <Route exact path="/order/" component={Tables}>
+          <Tables/>
+        </Route>
+
+        <Route exact path="/order/:id" component={Tables}>
+          <Products/>
+        </Route>
+
+        <Route exact path="/home" component={Home} /> 
+
+          {/* <Route path="/tables"component={Tables}/> */}
+        <Route exact path="/order/" component={Products}>
+          <Tables/>
+          <Products/>
+        </Route>
+        
         <Route exact path="/order/:id">
           <Header/>
           <Products/>
-            </Route>
-          <Route exact path="/home" component={Home} /> 
+        </Route>
 
-          {/* <Route path="/tables"component={Tables}/> */}
-          <Route exact path="/order/"component={Products}>
-            <Tables/>
-            <Products/>
-          </Route>
-             
-          <Route exact path="/kitchen" component={Cocina} />
-          <Route exact path="/orders" component={PedidosPorEntregar} />
-          <Redirect to="/home" /> 
-          <Route component={PageNotFound} />
+        <Route exact path="/kitchen" component={Cocina} />
+        <Route exact path="/orders" component={PedidosPorEntregar} />
+        <Redirect to="/home" /> 
+        <Route component={PageNotFound} />
           
           
         </Switch>
