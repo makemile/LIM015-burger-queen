@@ -5,9 +5,9 @@ import Breakfast from './Breakfast';
 import './breakfast.css';
 // import Lunch from './Lunch';
 // import './lunch.css';
-import "./tables.css";
-import { db } from "../utils/firebaseConfig";
-import LinkButton from "./ButtonLink";
+import './tables.css';
+import { db } from '../utils/firebaseConfig';
+import LinkButton from './ButtonLink';
 
 //PARTE KENGYA
 

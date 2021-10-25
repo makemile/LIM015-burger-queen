@@ -56,7 +56,7 @@ function TypeBurger(e) {
           <div className = "content-burger">
             <div className = "visual-burger">
               <figure className = "burger-figure">
-                <img  className = "product-img" src = {ProductsBurger.img} alt = {ProductsBurger.name}/>
+                <img  className = "burger-img" src = {ProductsBurger.img} alt = {ProductsBurger.name}/>
                 <span className = "burger-price"><strong> s/{ProductsBurger.price2}</strong>
                 </span>
               </figure>
@@ -120,11 +120,11 @@ function TypeBurger(e) {
       <>
       <main className="lunch-grid">
           {data.map((ProductsLunch, index) => (
-            <div className="container-lunch" key={ProductsLunch}>
+            <div className="container-lunch" key={index}>
               <div className="content-lunch">
                 <div className="visual-lunch">
                   <figure className="lunch-figure">
-                    <img className="product-img" src={ProductsLunch.img} alt={ProductsLunch.name} />
+                    <img className="lunch-img" src={ProductsLunch.img} alt={ProductsLunch.name} />
                     <span className="lunch-price"><strong>S/.{ProductsLunch.price}.00</strong></span>
                   </figure>
                 </div>

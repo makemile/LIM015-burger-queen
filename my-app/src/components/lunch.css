@@ -12,43 +12,67 @@
     }
     
     /*********CONTENEDOR DE HAMBURGUESAS************/
-    .menu-section-lunch {
+    .burger-grid {
+      display: grid;
+      grid-template-columns: 310px 310px;
+      gap: 15px;
+      width: 670px;
+      height: auto;
+      justify-content: flex-start;
+  }
+  .container-burger {
+    width: 310px;
+    height: 280px;
+    background: #ffffff;
+    box-shadow: 15px 19px 28px rgba(0, 0, 0, 0.06);
+    border-radius: 30px;
+  }
+  .content-burger {
+    margin: 0 auto;
+    padding-top: 15px;
+    width: 260px;
+  }
+    /* .menu-section-lunch {
         display: grid;
         grid-template-columns: 340px 340px;
         gap: 15px;
         width: 771px;
         height: auto;
     
-    }
+    } */
     
     .container-burger {
-      width: 340px;
-      height: 340px;
-      background: #FFFFFF;
+      width: 310px;
+      height: 280px;
+      background: #ffffff;
       box-shadow: 15px 19px 28px rgba(0, 0, 0, 0.06);
       border-radius: 30px;
     }
     .content-burger {
-      width: 310px;
       margin: 0 auto;
       padding-top: 15px;
+      width: 260px;
     }
     .visual-burger {
       display: flex;
       align-items: center;
       align-content: center;
     }
-    .burger-img {
-      display: contents;
+    .burger-figure {
+      display: flex;
+      justify-content: center;
     }
-    .burger-img img {
+    .burger-img {
+      width: 170px;
+    }
+    /* .burger-img img {
       padding: 0;
       margin: 0;
       width: 200px;
       height: auto;
       margin-right: 30px;
-    }
-    .burger-img .price-burger {
+    } */
+    .burger-figure .price-burger {
       align-items: center;
       display: flex;
       justify-content: center;
@@ -65,14 +89,14 @@
     .product-details-burger h3 {
       font-size: 2.0rem;
       margin-top: 0px;
+      margin-bottom: 18px;
       margin-bottom: 10px;
     }
     .product-details h3 p {
       margin-top: 1px;
-    }
-    .product-details p {
       font-size: 1.3rem;
     }
+  
     .select-opt {
       text-align: center;
       margin-bottom: 15px;
@@ -80,7 +104,7 @@
     select {
       background-color: red;
       border: none;
-      width: 160px;
+      width: 130px;
       height: 30px;
       border-radius: 10px;
       color: white;
@@ -116,32 +140,41 @@
       color: white;
       font-family: 'Montserrat', sans-serif;
       font-weight: bold;
-      background: brown;
+      background: #5C1E0B;
       width: 100%;
       height: 50px;
       cursor: pointer;
     }
     
     /*********CONTENEDOR DE PRODUCTOS************/
-    .menu-section-lunch {
+    .lunch-grid {
+      display: grid;
+      grid-template-columns: 310px 310px;
+      gap: 15px;
+      width: 670px;
+      height: auto;
+      justify-content: flex-start;
+  }
+
+    /* .menu-section-lunch {
         display: grid;
         grid-template-columns: 340px 340px;
         gap: 15px;
         width: 771px;
         height: auto;
-    }
+    } */
     
     .container-lunch {
-      width: 340px;
-      height: 300px;
-      background: #FFFFFF;
+      width: 310px;
+      height: 280px;
+      background: #ffffff;
       box-shadow: 15px 19px 28px rgba(0, 0, 0, 0.06);
-      border-radius: 30px;
+      border-radius: 30px;    
     }
     .content-lunch {
-      width: 310px;
       margin: 0 auto;
       padding-top: 15px;
+      width: 260px; 
     }
     .visual-lunch {
       display: flex;
@@ -175,6 +208,10 @@
       margin-bottom: 18px;
       text-align: center;
     }
+    .lunch-details h3 p {
+      margin-top: 1px;
+      font-size: 1.3rem;
+    }
     
     .lunch-btn {
       font-size: 2.0rem;
@@ -185,7 +222,7 @@
       color: white;
       font-family: 'Montserrat', sans-serif;
       font-weight: bold;
-      background: brown;
+      background: #5C1E0B;
       width: 100%;
       height: 50px;
       cursor: pointer;
