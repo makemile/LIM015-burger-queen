@@ -7,7 +7,6 @@ import {
 import Header from './components/Header';
 import Home from './components/Home';
 import Tables from './components/Orders';
-import Orders from './components/Orders';
 import Cocina from './components/Cocina';
 import PedidosPorEntregar from './components/Pedidos_Por_Entregar';
 import PageNotFound from './components/PageNotFound';
@@ -26,11 +25,13 @@ function App() {
             </Route>
           <Route exact path="/home" component={Home} /> 
           {/* <Route path="/tables"component={Tables}/> */}
-          <Route exact path="/order/"component={Orders}>
-            <Tables/>
+          <Route exact path="/order/"component={Tables}>
+          <Tables/>
+          </Route>
+
+          <Route exact path="/order/:id"component={Tables}>
             <ProductsLunch/>
-            <ProductsBurger/>
-            
+            <ProductsBurger/> 
           </Route>
              
           <Route exact path="/kitchen" component={Cocina} />

@@ -29,22 +29,23 @@ export const ProductsBurger = () => {
           extra2: doc.data().extra2,
         }
         Burger.push(obj);
-        console.log(obj)
       })
       setDate ([...Burger]);
     })
   }, [])
 
-  // const addProducts = (e) => {
+   const addProducts = (e) => {
     
-  //     console.log(e)
-  //   }
+       e.preventDefault();
+       console.log(e)
+     }
 
   //select type burger//
 const [types,setTypes]=useState('Pollo');
 
 function TypeBurger(e) {
     setTypes(e.target.value)
+    
   }
   
   return(
@@ -57,6 +58,7 @@ function TypeBurger(e) {
           <div className = "visual-burger">
             <figure className = "burger-figure">
               <img  className = "product-img" src = {ProductsBurger.img} alt = {ProductsBurger.name}/>
+
               <span className = "burger-price"><strong> s/{ProductsBurger.price2}</strong>
 
               </span>
@@ -80,13 +82,20 @@ function TypeBurger(e) {
           <input type="radio" id="huevo" name="type" value="huevo" />
           <label htmlFor="huevo">{ProductsBurger.extra1}</label>
         </div>
-        <button type="button" className = "bt-burger">AGREGAR</button>
+        <button type="button" className = "btn-burger" onClick = {(e) => {
+          addProducts(e)}}>
+            AGREGAR</button>
       </div>
         </div>
       ))}
   </main>
     </>
   )
+  }
+
+
+  const addProductsLunch = (e) =>{
+console.log(e)
   }
 
   export const ProductsLunch = () =>{
@@ -129,7 +138,9 @@ function TypeBurger(e) {
                 <div className="lunch-details">
                   <h3>{ProductsLunch.name}</h3>
                 </div>
-                <button type="button">AGREGAR</button>
+                <button type="button" className = "btn-lunch" onClick = {(e) => {
+                  addProductsLunch(e)
+                }}>AGREGAR</button>
               </div>
             </div>
           ))}
