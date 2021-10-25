@@ -1,201 +1,142 @@
-import React, { useState, useEffect } from 'react';
-// import { collection } from 'firebase/firestore';
-import { collection, onSnapshot } from 'firebase/firestore'; // Importar Firestore
-// import querySnapshot from '../utils/firestore';
-import db from '../utils/firebaseConfig';
+import React from 'react';
+import {useEffect, useState} from 'react';
+import { db } from "../utils/firebaseConfig";
 
-// console.log(lunchCollection);
-// return lunchCollection.docs.map((doc) => ({ id: doc.id, docdata: doc.data() }));
-// async function getLunch() {
-//   const lunchData = await querySnapshot(db, 'lunch');
-//   lunchData.docs.forEach((doc) => (`${doc.id}, ${doc.data()}`));
-// }
 
-function Lunch() {
-  // db.collection('lunch').doc('1').onSnapshot((document) => console.log(document.data()));
 
-  const [lunch, setLunch] = useState([]);
-  console.log(lunch);
-  console.log(...lunch);
+
+export const ProductsBurger = () => {
+
+  const [data, setDate] = useState([]);
 
   useEffect(() => {
-    onSnapshot(collection(db, 'lunch'), (snapshot) => {
-      setLunch(snapshot.docs.map((doc) => doc.data()));
-    });
-  }, []);
+    db.collection('Burger')
+    .orderBy('name', 'asc')
+    .get()
+    .then((querySnapshot) => {
+      const Burger = [];
+      querySnapshot.forEach(doc => {
+        const obj = {
+          id: doc.id,
+          img: doc.data().img,
+          name: doc.data().name,
+          price1: doc.data().price1,
+          price2: doc.data().price2,
+          type1: doc.data().type1,
+          type2: doc.data().type2,
+          type3: doc.data().type3,
+          extra1: doc.data().extra1,
+          extra2: doc.data().extra2,
+        }
+        Burger.push(obj);
+        console.log(obj)
+      })
+      setDate ([...Burger]);
+    })
+  }, [])
 
-  lunch.map((product) => console.log(product.name));
+  // const addProducts = (e) => {
+    
+  //     console.log(e)
+  //   }
 
-  return (
-    //     {/* <!------------------------------ Contenedor 1 --------------------------------> */}
-    <div className="container-burger">
-      <div className="content-burger">
-        <div className="visual-burger">
-          <figure className="burger-img">
-            <img src="https://i.postimg.cc/gJLzn9KP/hmb-doble.png" alt="" />
-            <span className="price-burger"><strong>S/. 15.00</strong></span>
-          </figure>
+  //select type burger//
+const [types,setTypes]=useState('Pollo');
+
+function TypeBurger(e) {
+    setTypes(e.target.value)
+  }
+  
+  return(
+  
+  <>
+  <main className = "burger-grid">
+  {data.map((ProductsBurger) => (
+        <div className = "container-burger" key = {ProductsBurger.id}>
+          <div className = "content-burger">
+            <div className = "visual-burger">
+              <figure className = "burger-figure">
+                <img  className = "product-img" src = {ProductsBurger.img} alt = {ProductsBurger.name}/>
+                <span className = "burger-price"><strong> s/{ProductsBurger.price2}</strong>
+                </span>
+              </figure>
+            </div>
+
+            {/*select de type burger */}
+          <div class="select-opt">
+            <p><select value={types} onChange={TypeBurger}>
+              <option >{ProductsBurger.type1}</option>
+              <option >{ProductsBurger.type2}</option>
+              <option >{ProductsBurger.type3}</option>
+            </select></p>
+          </div>
+
+          {/*extras... s/1 */}
+          <div className="additions">
+            <p><strong>Agregados S/.1</strong></p>
+
+            <input type="radio" id="queso" name="type" value="queso" />
+            <label htmlFor="queso">{ProductsBurger.extra2}</label>
+
+            <input type="radio" id="huevo" name="type" value="huevo" />
+            <label htmlFor="huevo">{ProductsBurger.extra1}</label>
+          </div>
+
+          <button type="button" className = "bt-burger">AGREGAR</button>
+          </div>
         </div>
+      ))}
+  </main>
+    </>
+  )
+  }
 
-        <div className="product-details-burger">
-          <h3>Hamburguesa Doble</h3>
-        </div>
+  export const ProductsLunch = () =>{
 
-        {/* <div className="select-opt">
-          <select name="burger-types" defaultValue={'DEFAULT'}>
-            <option value="value1">res</option>
-            <option value="value2" selected>vegetariana</option>
-            <option value="value3">pollo</option>
-          </select>
-        </div> */}
+    const [data, setData] = useState([]);
+  
+    useEffect(() => {
+      db.collection('lunch')
+      .orderBy('name', 'asc')
+      .get()
+      .then((querySnapshot) =>{
+        const Lunch = [];
+        querySnapshot.forEach((doc) =>{
+          const obj = {
+            id: doc.id,
+            img: doc.data().img,
+            name: doc.data().name,
+            price: doc.data().price,
+          }
+          Lunch.push(obj);
+        })
+        setData([...Lunch])
+      })
 
-        <div className="additions">
-          <p><strong>Agregados S/.1</strong></p>
-          <input type="radio" id="queso" name="type" value="queso" />
-          <label htmlFor="queso">Queso</label>
+    }, [])
 
-          <input type="radio" id="huevo" name="type" value="huevo" />
-          <label htmlFor="huevo">Huevo</label>
-        </div>
-        <button type="button">AGREGAR</button>
-      </div>
-    </div>
-  );
-}
 
-export default Lunch;
-// return (
-//   <section className="menu-section-lunch">
-
-//     {/* <!------------------------------ Contenedor 1 --------------------------------> */}
-//     <div className="container-burger">
-//       <div className="content-burger">
-//         <div className="visual-burger">
-//           <figure className="burger-img">
-//             <img src="https://i.postimg.cc/gJLzn9KP/hmb-doble.png" alt="" />
-//             <span className="price-burger"><strong>S/. 15.00</strong></span>
-//           </figure>
-//         </div>
-
-//         <div className="product-details-burger">
-//           <h3>Hamburguesa Doble</h3>
-//         </div>
-
-//         {/* <div className="select-opt">
-//           <select name="burger-types" defaultValue={'DEFAULT'}>
-//             <option value="value1">res</option>
-//             <option value="value2" selected>vegetariana</option>
-//             <option value="value3">pollo</option>
-//           </select>
-//         </div> */}
-
-//         <div className="additions">
-//           <p><strong>Agregados S/.1</strong></p>
-//           <input type="radio" id="queso" name="type" value="queso" />
-//           <label htmlFor="queso">Queso</label>
-
-//           <input type="radio" id="huevo" name="type" value="huevo" />
-//           <label htmlFor="huevo">Huevo</label>
-//         </div>
-//         <button type="button">AGREGAR</button>
-//       </div>
-//     </div>
-
-//     {/* <!------------------------------ Contenedor 2 --------------------------------> */}
-//     <div className="container-burger">
-//       <div className="content-burger">
-//         <div className="visual-burger">
-//           <figure className="burger-img">
-//             <img src="https://i.postimg.cc/gJLzn9KP/hmb-doble.png" alt="" />
-//             <span className="price-burger"><strong>S/. 15.00</strong></span>
-//           </figure>
-//         </div>
-
-//         <div className="product-details-burger">
-//           <h3>Hamburguesa Doble</h3>
-//         </div>
-
-//         {/* <div className="select-opt">
-//           <select name="burger-types">
-//             <option value="value1">res</option>
-//             <option value="value2" selected>vegetariana</option>
-//             <option value="value3">pollo</option>
-//           </select>
-//         </div> */}
-
-//         <div className="additions">
-//           <p><strong>Agregados S/.1</strong></p>
-//           <input type="radio" id="queso" name="type" value="queso" />
-//           <label htmlFor="queso">Queso</label>
-
-//           <input type="radio" id="huevo" name="type" value="huevo" />
-//           <label htmlFor="huevo">Huevo</label>
-//         </div>
-//         <button type="button">AGREGAR</button>
-//       </div>
-//     </div>
-
-//     {/* <!------------------------------ Contenedor 3 --------------------------------> */}
-//     <div className="container-lunch">
-//       <div className="content-lunch">
-//         <div className="visual-lunch">
-//           <figure className="lunch-figure">
-//             <img src="https://i.postimg.cc/XJhnmfyk/burgerking-cafe.png" alt="" />
-//             <span className="lunch-price"><strong>S/. 5.00</strong></span>
-//           </figure>
-//         </div>
-//         <div className="lunch-details">
-//           <h3>Café Americano</h3>
-//         </div>
-//         <button type="button" className="lunch-btn">AGREGAR</button>
-//       </div>
-//     </div>
-//     {/* <!------------------------------ Contenedor 4 --------------------------------> */}
-//     <div className="container-lunch">
-//       <div className="content-lunch">
-//         <div className="visual-lunch">
-//           <figure className="lunch-figure">
-//             <img src="https://i.postimg.cc/XJhnmfyk/burgerking-cafe.png" alt="" />
-//             <span className="lunch-price"><strong>S/. 5.00</strong></span>
-//           </figure>
-//         </div>
-//         <div className="lunch-details">
-//           <h3>Café Americano</h3>
-//         </div>
-//         <button type="button" className="lunch-btn">AGREGAR</button>
-//       </div>
-//     </div>
-//     {/* <!------------------------------ Contenedor 5 --------------------------------> */}
-//     <div className="container-lunch">
-//       <div className="content-lunch">
-//         <div className="visual-lunch">
-//           <figure className="lunch-figure">
-//             <img src="https://i.postimg.cc/XJhnmfyk/burgerking-cafe.png" alt="" />
-//             <span className="lunch-price"><strong>S/. 5.00</strong></span>
-//           </figure>
-//         </div>
-//         <div className="lunch-details">
-//           <h3>Café Americano</h3>
-//         </div>
-//         <button type="button" className="lunch-btn">AGREGAR</button>
-//       </div>
-//     </div>
-
-//     {/* <!------------------------------ Contenedor 6 --------------------------------> */}
-//     <div className="container-lunch">
-//       <div className="content-lunch">
-//         <div className="visual-lunch">
-//           <figure className="lunch-figure">
-//             <img src="https://i.postimg.cc/XJhnmfyk/burgerking-cafe.png" alt="" />
-//             <span className="lunch-price"><strong>S/. 5.00</strong></span>
-//           </figure>
-//         </div>
-//         <div className="lunch-details">
-//           <h3>Café Americano</h3>
-//         </div>
-//         <button type="button" className="lunch-btn">AGREGAR</button>
-//       </div>
-//     </div>
-
-//   </section>
-// );
+    return(
+      <>
+      <main className="lunch-grid">
+          {data.map((ProductsLunch, index) => (
+            <div className="container-lunch" key={ProductsLunch}>
+              <div className="content-lunch">
+                <div className="visual-lunch">
+                  <figure className="lunch-figure">
+                    <img className="product-img" src={ProductsLunch.img} alt={ProductsLunch.name} />
+                    <span className="lunch-price"><strong>S/.{ProductsLunch.price}.00</strong></span>
+                  </figure>
+                </div>
+                <div className="lunch-details">
+                  <h3>{ProductsLunch.name}</h3>
+                </div>
+                <button type="button">AGREGAR</button>
+              </div>
+            </div>
+          ))}
+          </main>
+          </>
+      
+        )        
+  }

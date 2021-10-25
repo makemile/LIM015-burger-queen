@@ -1,12 +1,72 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import './orders.css';
 import Breakfast from './Breakfast';
 import './breakfast.css';
 // import Lunch from './Lunch';
 // import './lunch.css';
+import "./tables.css";
+import { db } from "../utils/firebaseConfig";
+import LinkButton from "./ButtonLink";
 
-function Products() {
+//PARTE KENGYA
+
+// ----------------- ESTRUCTURA PARA VISTA MESAS ---------------- //
+
+export function Tables() {
+  const [data, setData] = useState([]);
+  // const [status, setData] = useState([]);
+  useEffect(() => {
+    db.collection('Table')
+    .orderBy('name', 'asc')
+    .get()
+    .then((querySnapshot)=>{
+      const Table = [];
+      querySnapshot.forEach((doc) =>{
+        let id = doc.id;
+        let name = doc.data().name;
+        let status = doc.data().status;
+        let obj = {id, name, status};
+        Table.push(obj);
+        console.log(obj);
+    })
+    setData([...Table]);
+    })
+  }, []);
+
+  const ClickOrders = (e) => {
+    if(db.collection('Table').doc().update({status:false})) {
+      console.log(e)
+    }
+  };
+
+  return (
+    <>
+      <Header />
+      {/* Grilla de mesas */}
+         {data.map((Table) => (
+          <section key = {Table.name}>
+            <div className="tables-container">
+             {console.log(Table.id,41)}
+                <LinkButton to = {`/order/${Table.id}`}
+                  type="button"
+                  className="table-button"
+                  onClick={(e) => { 
+                  ClickOrders(e)
+                  }}
+                >
+                {Table.name}
+                </LinkButton>
+            </div>
+          </section>
+        ))}
+    </>
+  )
+};
+
+// ----------------- ESTRUCTURA PARA VISTA DE MENU Y TABLA DE PEDIDOS ---------------- //
+// PARTE PIERINA
+export function Products() {
   // Eventos para los botones
   const [isVisibleBf, setVisibleBf] = useState(true); // contenedor de desayuno visible
   const [isVisibleLunch, setVisibleLunch] = useState(false); // contenedor de almuerzo oculto
@@ -49,52 +109,4 @@ function Products() {
       </main>
     </>
   );
-}
-export default Products;
-
-/* <button type="button" className="btn-breakfast" onClick={changeValue}>DESAYUNO</button>
-      <button type="button" className="btn-lunch" onClick={changeValue}>ALMUERZO</button> */
-
-      /* <div style={{ display: isVisibleBf ? 'block' : 'none' }}>
-        Contenido de desayuno
-      </div>
-      <div style={{ display: isVisibleLunch ? 'block' : 'none' }}>
-        Contenido de almuerzo
-      </div> */
-
-
-// {data.length ? (
-//   data.map((Table) => (
-
-//     <section>
-//       <grid key={Table.id} className="tables-container">
-//         <button type="button" className="table-button">{Table.name}</button>
-//       </grid>
-//     </section>
-//   ))
-// ) : (<p>hola</p>)}
-
-// function Products() {
-//   const [visibleLunch, setLunch] = useState(true); // es false
-//   const [visibleBreakfast, setBreakfast] = useState(false);
-
-//   return (
-//     <>
-//       <Header />
-//       <section className="menu-section">
-//         <div className="menu-buttons-container">
-//           <button type="button" className="btn-breakfast" onClick={() =>
-// setBreakfast(true)}>DESAYUNO</button>
-//           <button type="button" className="btn-lunch" onClick={() =>
-// setLunch(true)}>ALMUERZO</button>
-//           {visibleLunch && <Lunch />}
-//           {visibleBreakfast && <Breakfast />}
-//         </div>
-
-//         <Breakfast />
-//       </section>
-//     </>
-
-//   );
-// }
-// export default Products;
+};
