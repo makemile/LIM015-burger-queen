@@ -7,9 +7,9 @@
     font-size: 62.5%;
     font-family: 'Montserrat', sans-serif;
     }
-    body {
+    /* body {
       background: #E5E5E5;
-    }
+    } */
     
     /*********CONTENEDOR DE HAMBURGUESAS************/
     .burger-grid {
@@ -19,18 +19,37 @@
       width: 670px;
       height: auto;
       justify-content: flex-start;
+      margin-bottom: 15px;
+    }
+    .lunch-grid {
+      display: grid;
+      grid-template-columns: 310px 310px;
+      gap: 15px;
+      width: 670px;
+      height: auto;
+      justify-content: flex-start;
   }
   .container-burger {
+    width: 310px;
+    height: 335px;
+    background: #ffffff;
+    box-shadow: 15px 19px 28px rgba(0, 0, 0, 0.06);
+    border-radius: 30px;
+  }
+  
+  .container-lunch {
     width: 310px;
     height: 280px;
     background: #ffffff;
     box-shadow: 15px 19px 28px rgba(0, 0, 0, 0.06);
     border-radius: 30px;
   }
-  .content-burger {
+  .content-burger,
+  .content-lunch {
     margin: 0 auto;
     padding-top: 15px;
     width: 260px;
+    text-align: center;
   }
     /* .menu-section-lunch {
         display: grid;
@@ -40,29 +59,20 @@
         height: auto;
     
     } */
-    
-    .container-burger {
-      width: 310px;
-      height: 280px;
-      background: #ffffff;
-      box-shadow: 15px 19px 28px rgba(0, 0, 0, 0.06);
-      border-radius: 30px;
-    }
-    .content-burger {
-      margin: 0 auto;
-      padding-top: 15px;
-      width: 260px;
-    }
-    .visual-burger {
+
+    .visual-burger,
+    .visual-lunch {
       display: flex;
       align-items: center;
       align-content: center;
     }
-    .burger-figure {
+    .burger-figure,
+    .lunch-figure {
       display: flex;
       justify-content: center;
     }
-    .burger-img {
+    .burger-img,
+    .lunch-figure img {
       width: 170px;
     }
     /* .burger-img img {
@@ -72,7 +82,8 @@
       height: auto;
       margin-right: 30px;
     } */
-    .burger-figure .price-burger {
+    .burger-figure .burger-price,
+    .lunch-figure .lunch-price  {
       align-items: center;
       display: flex;
       justify-content: center;
@@ -86,22 +97,23 @@
       font-weight: 700;
     }
     
-    .product-details-burger h3 {
+    .product-details-burger h3,
+    .lunch-details h3 {
       font-size: 2.0rem;
       margin-top: 0px;
       margin-bottom: 18px;
-      margin-bottom: 10px;
+      /* margin-bottom: 10px; */
     }
-    .product-details h3 p {
+    /* .product-details h3 p {
       margin-top: 1px;
       font-size: 1.3rem;
     }
-  
+   */
     .select-opt {
       text-align: center;
       margin-bottom: 15px;
     }
-    select {
+    .select-btn {
       background-color: red;
       border: none;
       width: 130px;
@@ -122,7 +134,7 @@
     
     .additions p {
       margin-right: 15px;
-      font-size: 1.8rem;
+      font-size: 1.3rem;
     }
     .additions input {
       cursor: pointer;
@@ -132,7 +144,7 @@
       font-size: 1.3rem;
     }
     button {
-      font-size: 2.0rem;
+      font-size: 2rem;
       border: none;
       width: 150px;
       height: 30px;
@@ -147,14 +159,14 @@
     }
     
     /*********CONTENEDOR DE PRODUCTOS************/
-    .lunch-grid {
+    /* .lunch-grid {
       display: grid;
       grid-template-columns: 310px 310px;
       gap: 15px;
       width: 670px;
       height: auto;
       justify-content: flex-start;
-  }
+  } */
 
     /* .menu-section-lunch {
         display: grid;
@@ -164,31 +176,31 @@
         height: auto;
     } */
     
-    .container-lunch {
+    /* .container-lunch {
       width: 310px;
       height: 280px;
       background: #ffffff;
       box-shadow: 15px 19px 28px rgba(0, 0, 0, 0.06);
       border-radius: 30px;    
-    }
-    .content-lunch {
+    } */
+    /* .content-lunch {
       margin: 0 auto;
       padding-top: 15px;
       width: 260px; 
-    }
-    .visual-lunch {
+    } */
+    /* .visual-lunch {
       display: flex;
       align-items: center;
       align-content: center;
-    }
-    .lunch-figure {
+    } */
+    /* .lunch-figure {
       display: flex;
       justify-content: center;
-    }
-    .lunch-figure img {
+    } */
+    /* .lunch-figure img {
       width: 170px;
-    }
-    .lunch-figure .lunch-price {
+    } */
+    /* .lunch-figure .lunch-price {
       align-items: center;
       display: flex;
       justify-content: center;
@@ -201,13 +213,13 @@
       font-size: 1.8rem;
       font-weight: 700;
     }
-    
-    .lunch-details h3 {
+     */
+    /* .lunch-details h3 {
       font-size: 2.0rem;
       margin-top: 0px;
       margin-bottom: 18px;
       text-align: center;
-    }
+    } */
     .lunch-details h3 p {
       margin-top: 1px;
       font-size: 1.3rem;
