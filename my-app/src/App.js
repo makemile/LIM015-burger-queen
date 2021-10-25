@@ -6,42 +6,50 @@ import {
 } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
-import Tables from './components/Orders';
-import Orders from './components/Orders';
+import { Products, Tables } from './components/Orders';
 import Cocina from './components/Cocina';
 import PedidosPorEntregar from './components/Pedidos_Por_Entregar';
 import PageNotFound from './components/PageNotFound';
-import {ProductsLunch, ProductsBurger} from './components/Lunch';
+// import {ProductsLunch, ProductsBurger} from './components/Lunch';
 
 
 function App() {
   return (
+    <>
     <div className="app">
       <BrowserRouter>
         <Switch>
+        <Route exact path="/order/" component={Tables}>
+          <Tables/>
+        </Route>
+
+        <Route exact path="/order/:id" component={Tables}>
+          <Products/>
+        </Route>
+
+        <Route exact path="/home" component={Home} /> 
+
+          {/* <Route path="/tables"component={Tables}/> */}
+        <Route exact path="/order/" component={Products}>
+          <Tables/>
+          <Products/>
+        </Route>
+        
         <Route exact path="/order/:id">
           <Header/>
-          <ProductsLunch/>
-          <ProductsBurger/>
-            </Route>
-          <Route exact path="/home" component={Home} /> 
-          {/* <Route path="/tables"component={Tables}/> */}
-          <Route exact path="/order/"component={Orders}>
-            <Tables/>
-            <ProductsLunch/>
-            <ProductsBurger/>
-            
-          </Route>
-             
-          <Route exact path="/kitchen" component={Cocina} />
-          <Route exact path="/orders" component={PedidosPorEntregar} />
-          <Redirect to="/home" /> 
-          <Route component={PageNotFound} />
+          <Products/>
+        </Route>
+
+        <Route exact path="/kitchen" component={Cocina} />
+        <Route exact path="/orders" component={PedidosPorEntregar} />
+        <Redirect to="/home" /> 
+        <Route component={PageNotFound} />
           
           
         </Switch>
       </BrowserRouter>
     </div>
+    </>
   );
 }
 

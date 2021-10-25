@@ -11,14 +11,14 @@ const Home = () => (
 
     <div className="button__options">
       <Link to="/tables">
-        <button type="button" className="btn-table">MESAS</button>
+        <button type="button" className="btn-table">MESERO</button>
       </Link>
       <Link to="/order">
       <button type="button" className="btn-orden">PEDIDO</button>
        </Link>
       <Link to="/kitchen">
-      <button type="button" className="btn-chef">COCINA</button>
-       </Link>
+        <button type="button" className="btn-chef">CHEF</button>
+      </Link>
     </div>
   </div>
 );

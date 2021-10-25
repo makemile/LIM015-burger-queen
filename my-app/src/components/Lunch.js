@@ -4,7 +4,6 @@ import { db } from "../utils/firebaseConfig";
 
 
 
-
 export const ProductsBurger = () => {
 
   const [data, setDate] = useState([]);
@@ -52,36 +51,38 @@ function TypeBurger(e) {
   <>
   <main className = "burger-grid">
   {data.map((ProductsBurger) => (
-      <div className = "container-burger" key = {ProductsBurger.id}>
-        <div className = "content-burger">
-          <div className = "visual-burger">
-            <figure className = "burger-figure">
-              <img  className = "product-img" src = {ProductsBurger.img} alt = {ProductsBurger.name}/>
-              <span className = "burger-price"><strong> s/{ProductsBurger.price2}</strong>
+        <div className = "container-burger" key = {ProductsBurger.id}>
+          <div className = "content-burger">
+            <div className = "visual-burger">
+              <figure className = "burger-figure">
+                <img  className = "burger-img" src = {ProductsBurger.img} alt = {ProductsBurger.name}/>
+                <span className = "burger-price"><strong> s/{ProductsBurger.price2}</strong>
+                </span>
+              </figure>
+            </div>
 
-              </span>
-            </figure>
-
-          </div>
-          {/*select de type burger */}
+            {/*select de type burger */}
           <div class="select-opt">
-          <p><select value={types} onChange={TypeBurger}>
-            <option >{ProductsBurger.type1}</option>
-            <option >{ProductsBurger.type2}</option>
-            <option >{ProductsBurger.type3}</option>
-          </select></p>
-        </div>
-        {/*extras... s/1 */}
-        <div className="additions">
-          <p><strong>Agregados S/.1</strong></p>
-          <input type="radio" id="queso" name="type" value="queso" />
-          <label htmlFor="queso">{ProductsBurger.extra2}</label>
+            <p><select value={types} onChange={TypeBurger}>
+              <option >{ProductsBurger.type1}</option>
+              <option >{ProductsBurger.type2}</option>
+              <option >{ProductsBurger.type3}</option>
+            </select></p>
+          </div>
 
-          <input type="radio" id="huevo" name="type" value="huevo" />
-          <label htmlFor="huevo">{ProductsBurger.extra1}</label>
-        </div>
-        <button type="button" className = "bt-burger">AGREGAR</button>
-      </div>
+          {/*extras... s/1 */}
+          <div className="additions">
+            <p><strong>Agregados S/.1</strong></p>
+
+            <input type="radio" id="queso" name="type" value="queso" />
+            <label htmlFor="queso">{ProductsBurger.extra2}</label>
+
+            <input type="radio" id="huevo" name="type" value="huevo" />
+            <label htmlFor="huevo">{ProductsBurger.extra1}</label>
+          </div>
+
+          <button type="button" className = "bt-burger">AGREGAR</button>
+          </div>
         </div>
       ))}
   </main>
@@ -118,11 +119,11 @@ function TypeBurger(e) {
       <>
       <main className="lunch-grid">
           {data.map((ProductsLunch, index) => (
-            <div className="container-lunch" key={ProductsLunch}>
+            <div className="container-lunch" key={index}>
               <div className="content-lunch">
                 <div className="visual-lunch">
                   <figure className="lunch-figure">
-                    <img className="product-img" src={ProductsLunch.img} alt={ProductsLunch.name} />
+                    <img className="lunch-img" src={ProductsLunch.img} alt={ProductsLunch.name} />
                     <span className="lunch-price"><strong>S/.{ProductsLunch.price}.00</strong></span>
                   </figure>
                 </div>
