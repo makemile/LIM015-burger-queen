@@ -6,11 +6,10 @@ import reportWebVitals from './reportWebVitals';
 // import firebaseConfig from './utils/firebaseConfig';
 
 ReactDOM.render(
-  
-    <Suspense fallback={<p>Cargando...</p>}>
-      <App />
-    </Suspense>,
-  
+
+  <Suspense fallback={<p>Cargando...</p>}>
+    <App />
+  </Suspense>,
   document.getElementById('root'),
 );
 

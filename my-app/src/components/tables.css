@@ -1,13 +1,10 @@
+html {
+    font-family: "Montserrat";
+    background-color: #F3F4F6; 
+  }
 section {
     display: flex;
     justify-content: center;
-}
-.tables-container p {
-    font-size: 1.8rem;
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 3.0rem;
 }
 
 .tables-container > *{
@@ -20,17 +17,12 @@ section {
     grid-template-columns: repeat(3, 1fr);
     display: grid;
     gap: 40px;
-    margin-top: 30px;
+    margin-top: 180px;
 }
 
-.table1,
-.table2,
-.table3,
-.table4,
-.table5,
-.table6 {
-    width: 318px;
-    height: 131px;
+.table-button {
+    width: 250px;
+    height: 110px;
     background: #FF8823;
     border-radius: 20px;
     align-items: center;
