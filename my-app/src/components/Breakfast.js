@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, onSnapshot } from 'firebase/firestore'; // Importar Firestore
+// import { collection, onSnapshot } from 'firebase/firestore'; // Importar Firestore
 import { db } from '../utils/firebaseConfig';
 
 function Breakfast() {
@@ -7,17 +7,35 @@ function Breakfast() {
   const [breakfast, setBreakfast] = useState([]);
   console.log(breakfast);
 
+  // useEffect(() => {
+  //   onSnapshot(collection(db, 'Desayunos'), (snapshot) => {
+  //     setBreakfast(snapshot.docs.map((doc) => doc.data()));
+  //   });
+  // }, []);
   useEffect(() => {
-    onSnapshot(collection(db, 'Desayunos'), (snapshot) => {
-      setBreakfast(snapshot.docs.map((doc) => doc.data()));
-    });
-  }, []);
-  
+    db.collection('Desayunos')
+    .orderBy('name', 'asc')
+    .get()
+    .then((querySnapshot) => {
+      const bf = [];
+      querySnapshot.forEach(doc => {
+        const obj = {
+          id: doc.id,
+          img: doc.data().img,
+          name: doc.data().name,
+          price: doc.data().price,
+        }
+        bf.push(obj);
+        console.log(obj)
+      })
+      setBreakfast([...bf]);
+    })
+  }, [])
   return (
     <>
     <main className="breakfast-grid">
-    {breakfast.map((product, index) => (
-      <div className="container-breakfast" key={index}>
+    {breakfast.map((product) => (
+      <div className="container-breakfast" key={product.id}>
         <div className="content-breakfast">
           <div className="visual-breakfast">
             <figure className="breakfast-figure">

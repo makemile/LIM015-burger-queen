@@ -49,21 +49,25 @@ function TypeBurger(e) {
   return(
   
   <>
-  <main className = "burger-grid">
+  <main className="burger-grid">
   {data.map((ProductsBurger) => (
-        <div className = "container-burger" key = {ProductsBurger.id}>
-          <div className = "content-burger">
-            <div className = "visual-burger">
-              <figure className = "burger-figure">
-                <img  className = "burger-img" src = {ProductsBurger.img} alt = {ProductsBurger.name}/>
-                <span className = "burger-price"><strong> s/{ProductsBurger.price2}</strong>
+        <div className="container-burger" key={ProductsBurger.id}>
+          <div className="content-burger">
+            <div className="visual-burger">
+              <figure className="burger-figure">
+                <img  className="burger-img" src={ProductsBurger.img} alt = {ProductsBurger.name}/>
+                <span className="burger-price"><strong> S/{ProductsBurger.price2}.00</strong>
                 </span>
               </figure>
             </div>
 
+          <div className="product-details-burger">
+            <h3>{ProductsBurger.name}</h3>
+          </div>
+
             {/*select de type burger */}
-          <div class="select-opt">
-            <p><select value={types} onChange={TypeBurger}>
+          <div className="select-opt">
+            <p><select className="select-btn" value={types} onChange={TypeBurger}>
               <option >{ProductsBurger.type1}</option>
               <option >{ProductsBurger.type2}</option>
               <option >{ProductsBurger.type3}</option>
