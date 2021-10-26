@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { doc, updateDoc } from "firebase/firestore";
 import Header from './Header';
 import './orders.css';
 import Breakfast from './Breakfast';
@@ -35,11 +36,11 @@ export function Tables() {
     })
   }, []);
 
-  const ClickOrders = () => {
-    // if(data.status ===true) {
-    //   data.status === false;
-    // }
-    console.log(data)
+  const ClickOrders = async (id) => {
+    const statusRef = doc(db, "Table", id);
+    await updateDoc(statusRef, {
+      status: false
+    });
   }
   
   return (
@@ -53,9 +54,9 @@ export function Tables() {
              {console.log(Table.id,41)}
                 <LinkButton to={`/order/${Table.id}`}
                   type="button"
-                  key={Table.name}
+                  key={Table.id}
                   className="table-button"
-                  onClick={ClickOrders}
+                  onClick={() => ClickOrders(Table.id)}
                 >
                 {Table.name}
                 </LinkButton>
