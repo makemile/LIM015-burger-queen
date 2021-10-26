@@ -7,7 +7,7 @@ import { db } from "../utils/firebaseConfig";
 export const ProductsBurger = () => {
 
   const [data, setDate] = useState([]);
-
+console.log(data)
   useEffect(() => {
     db.collection('Burger')
     .orderBy('name', 'asc')
@@ -38,6 +38,17 @@ export const ProductsBurger = () => {
        e.preventDefault();
        console.log(e)
      }
+
+//button radius//
+const [selectValue, setSelectValue] = useState({
+checked: null
+})
+const handleChange = (e) =>{
+setSelectValue({
+  checked:e.target.value
+})
+}
+
 
   //select type burger//
 const [types,setTypes]=useState('Pollo');
@@ -78,12 +89,14 @@ function TypeBurger(e) {
           {/*extras... s/1 */}
           <div className="additions">
             <p><strong>Agregados S/.1</strong></p>
+            
 
-            <input type="radio" id="queso" name="type" value="queso" />
-            <label htmlFor="queso">{ProductsBurger.extra2}</label>
+            <input type="radio" id="queso" name="type" value="queso" checked= {selectValue.checked === 'queso' && selectValue.checked === 'huevo' } onChange={handleChange} />
+            <label for="queso">{ProductsBurger.extra2}</label>
 
-            <input type="radio" id="huevo" name="type" value="huevo" />
-            <label htmlFor="huevo">{ProductsBurger.extra1}</label>
+            <input type="radio" id="huevo" name="type" value="huevo"  onChange={handleChange} />
+            <label for="huevo">{ProductsBurger.extra1}</label>
+            <p>usted seleciono adiciones {selectValue.checked}</p>
           </div>
 
           <button type="button" className = "btn-lunch" onClick = {(e) => {
@@ -105,6 +118,7 @@ console.log(e)
   export const ProductsLunch = () =>{
 
     const [data, setData] = useState([]);
+    console.log(data)
   
     useEffect(() => {
       db.collection('lunch')

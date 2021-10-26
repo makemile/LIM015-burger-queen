@@ -36,9 +36,9 @@ export function Tables() {
   }, []);
 
   const ClickOrders = () => {
-    if(data.status == true) {
-      data.status = false;
-    }
+    // if(data.status ===true) {
+    //   data.status === false;
+    // }
     console.log(data)
   }
   
@@ -112,9 +112,9 @@ export function Products() {
         </section>
 
       {/* TABLA DE DETALLES DE LA ORDEN */}
-        <section className="purchase-orders-section">
+         <section className="purchase-orders-section">
           <PurchaseOrder/>
-        </section>
+        </section> 
       </main>
     </>
   );
