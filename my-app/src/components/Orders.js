@@ -113,9 +113,9 @@ export function Products() {
         </section>
 
       {/* TABLA DE DETALLES DE LA ORDEN */}
-        <section className="purchase-orders-section">
+         <section className="purchase-orders-section">
           <PurchaseOrder/>
-        </section>
+        </section> 
       </main>
     </>
   );
