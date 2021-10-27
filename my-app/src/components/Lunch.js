@@ -7,7 +7,7 @@ import './lunch.css'
 export const ProductsBurger = () => {
 
   const [data, setDate] = useState([]);
-console.log(data)
+// console.log(data)
   useEffect(() => {
     db.collection('Burger')
     .orderBy('name', 'asc')
@@ -114,7 +114,7 @@ console.log(e)
   export const ProductsLunch = () =>{
 
     const [data, setData] = useState([]);
-    console.log(data)
+    // console.log(data)
   
     useEffect(() => {
       db.collection('lunch')

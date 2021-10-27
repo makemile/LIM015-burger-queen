@@ -3,7 +3,7 @@ import React from 'react';
 
 export function PurchaseOrder (props) {
   // Traer data de breakfast
-  console.log(props.dataProducts, 'producto seleccionado')
+  // console.log(props.dataProducts, 'producto seleccionado')
   
     return (
       <>
@@ -43,10 +43,10 @@ export function PurchaseOrder (props) {
           </tr>
         </tbody>
         <>
-        {props.dataProducts !== undefined ? 
+        {props.dataBreakfast.length > 0 ? 
           <div>
-            <p>{props.dataProducts.name}</p>
-            <p>{props.dataProducts.price}</p>
+            <p>{props.dataBreakfast[0].name}</p>
+            <p>{props.dataBreakfast[0].price}</p>
           </div> 
           : 
           <div>
