@@ -37,9 +37,9 @@ function Breakfast() {
 
     // Acceder a la data del producto seleccionado
     const breakfastRef = doc(db, "Desayunos", id);
+    
     // Traer la data
     const docSnap = await getDoc(breakfastRef);
-  
     const docData = docSnap.data();
 
       const dataObj = {
@@ -49,6 +49,8 @@ function Breakfast() {
       }
       // console.log(dataObj)
       setDataProducts(dataObj)
+
+
   }
 
   return (
