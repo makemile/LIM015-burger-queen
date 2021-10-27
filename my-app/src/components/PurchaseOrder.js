@@ -1,13 +1,17 @@
 import React from 'react';
 // import delete from ; '../assets/icondelete.png';
 
+export function PurchaseOrder (props) {
+  console.log(props.dataProducts, 'producto seleccionado')
 
 
+  if(props.dataProducts != undefined) {
 
-
-export const PurchaseOrder = () => {
+  }
+  
     return (
-      <table class="table table-borderless">
+      <>
+      <table className="table table-borderless">
         <thead>
          <tr>
             <th scope="col">DETALLE DE LA ORDEN</th>
@@ -42,6 +46,17 @@ export const PurchaseOrder = () => {
             {/* <td className = "table__delete"><img className = "table__delete" src={delete} alt="delete" /></td> */}
           </tr>
         </tbody>
+        <>
+        {props.dataProducts != undefined ? 
+          <div>
+            <p>{props.dataProducts.name}</p>
+            <p>{props.dataProducts.price}</p>
+          </div> 
+          : 
+          <div>
+            No se agregaron productos
+          </div>}
+          </>
         <div className = "row max-4">
           <div className = "col">
             <h3 className = "item-card-total">Total $0</h3>
@@ -56,7 +71,8 @@ export const PurchaseOrder = () => {
         
         </div>
       </table>
-      
+      </>
     )
 }
+
 

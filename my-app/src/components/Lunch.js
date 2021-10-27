@@ -92,11 +92,10 @@ function TypeBurger(e) {
             
 
             <input type="radio" id="queso" name="type" value="queso" checked= {selectValue.checked === 'queso' && selectValue.checked === 'huevo' } onChange={handleChange} />
-            <label for="queso">{ProductsBurger.extra2}</label>
+            <label htmlFor="queso">{ProductsBurger.extra2}</label>
 
             <input type="radio" id="huevo" name="type" value="huevo"  onChange={handleChange} />
-            <label for="huevo">{ProductsBurger.extra1}</label>
-            <p>usted seleciono adiciones {selectValue.checked}</p>
+            <label htmlFor="huevo">{ProductsBurger.extra1}</label>
           </div>
 
           <button type="button" className = "btn-lunch" onClick = {(e) => {
