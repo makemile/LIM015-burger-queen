@@ -10,11 +10,11 @@ const Home = () => (
     </figure>
 
     <div className="button__options">
-      <Link to="/tables">
+      {/* <Link to="/tables">
         <button type="button" className="btn-table">MESERO</button>
-      </Link>
+      </Link> */}
       <Link to="/order">
-      <button type="button" className="btn-orden">PEDIDO</button>
+      <button type="button" className="btn-orden">MESERO</button>
        </Link>
       <Link to="/kitchen">
         <button type="button" className="btn-chef">CHEF</button>

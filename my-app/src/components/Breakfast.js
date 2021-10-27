@@ -2,16 +2,11 @@ import React, { useState, useEffect } from 'react';
 // import { collection, onSnapshot } from 'firebase/firestore'; // Importar Firestore
 import { db } from '../utils/firebaseConfig';
 
-function Breakfast() {
+function Breakfast(props) {
   // Data de desayuno
   const [breakfast, setBreakfast] = useState([]);
-  console.log(breakfast);
+  // console.log(breakfast);
 
-  // useEffect(() => {
-  //   onSnapshot(collection(db, 'Desayunos'), (snapshot) => {
-  //     setBreakfast(snapshot.docs.map((doc) => doc.data()));
-  //   });
-  // }, []);
   useEffect(() => {
     db.collection('Desayunos')
     .orderBy('name', 'asc')
@@ -26,11 +21,14 @@ function Breakfast() {
           price: doc.data().price,
         }
         bf.push(obj);
-        console.log(obj)
+        // console.log(obj)
       })
       setBreakfast([...bf]);
     })
   }, [])
+
+  // -----Obtener data de producto seleccionado por mesero (PRUEBA) -----//
+
   return (
     <>
     <main className="breakfast-grid">
@@ -46,7 +44,8 @@ function Breakfast() {
           <div className="breakfast-details">
             <h3>{product.name}</h3>
           </div>
-          <button type="button">AGREGAR</button>
+          {/* <button type="button">AGREGAR</button> */}
+          <button type="button" onClick={()=> props.addProduct(product.id)}>AGREGAR</button>
         </div>
       </div>
     ))}

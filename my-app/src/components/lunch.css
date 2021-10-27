@@ -31,7 +31,7 @@
   }
   .container-burger {
     width: 310px;
-    height: 335px;
+    height: 360px;
     background: #ffffff;
     box-shadow: 15px 19px 28px rgba(0, 0, 0, 0.06);
     border-radius: 30px;
@@ -71,9 +71,11 @@
       display: flex;
       justify-content: center;
     }
-    .burger-img,
+    figure .burger-img {
+      width: 160px;
+    }
     .lunch-figure img {
-      width: 170px;
+      width: 160px;
     }
     /* .burger-img img {
       padding: 0;
@@ -113,7 +115,7 @@
       text-align: center;
       margin-bottom: 15px;
     }
-    .select-btn {
+    select {
       background-color: red;
       border: none;
       width: 130px;
