@@ -71,9 +71,11 @@
       display: flex;
       justify-content: center;
     }
-    .burger-img,
+    figure .burger-img {
+      width: 160px;
+    }
     .lunch-figure img {
-      width: 170px;
+      width: 160px;
     }
     /* .burger-img img {
       padding: 0;
@@ -113,7 +115,7 @@
       text-align: center;
       margin-bottom: 15px;
     }
-    .select-btn {
+    select {
       background-color: red;
       border: none;
       width: 130px;

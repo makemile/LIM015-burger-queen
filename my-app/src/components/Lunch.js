@@ -1,7 +1,7 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
 import { db } from "../utils/firebaseConfig";
-
+import './lunch.css'
 
 
 export const ProductsBurger = () => {
@@ -39,25 +39,22 @@ console.log(data)
        console.log(e)
      }
 
-//button radius//
-const [selectValue, setSelectValue] = useState({
-checked: null
-})
-const handleChange = (e) =>{
-setSelectValue({
-  checked:e.target.value
-})
-}
-
-
   //select type burger//
-const [types,setTypes]=useState('Pollo');
+const [types,setTypes]=useState('Res');
 
-function TypeBurger(e) {
-    setTypes(e.target.value)
-    
+  function TypeBurger(e) {
+    setTypes(e.target.value)  
   }
+
+  // function TypeBurger(e) {
+  //   const id = e.target;
+  //  if (id === `select-btn${id}`) {
+  //   setTypes(e.target.value)  
+  //   } 
+  // }
+
   
+
   return(
   
   <>
@@ -79,7 +76,7 @@ function TypeBurger(e) {
 
             {/*select de type burger */}
           <div className="select-opt">
-            <p><select className="select-btn" value={types} onChange={TypeBurger}>
+            <p><select id={ProductsBurger.id} className={'select-btn'+ ProductsBurger.id} value={types} onChange={TypeBurger} >
               <option >{ProductsBurger.type1}</option>
               <option >{ProductsBurger.type2}</option>
               <option >{ProductsBurger.type3}</option>
@@ -91,10 +88,10 @@ function TypeBurger(e) {
             <p><strong>Agregados S/.1</strong></p>
             
 
-            <input type="radio" id="queso" name="type" value="queso" checked= {selectValue.checked === 'queso' && selectValue.checked === 'huevo' } onChange={handleChange} />
-            <label htmlFor="queso">{ProductsBurger.extra2}</label>
+            <input type="checkbox" id="queso" name="type" value="queso" />
+            <label htmlFor="checkbox">{ProductsBurger.extra2}</label>
 
-            <input type="radio" id="huevo" name="type" value="huevo"  onChange={handleChange} />
+            <input type="checkbox" id="huevo" name="type" value="huevo" />
             <label htmlFor="huevo">{ProductsBurger.extra1}</label>
           </div>
 

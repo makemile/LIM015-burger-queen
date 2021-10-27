@@ -2,12 +2,8 @@ import React from 'react';
 // import delete from ; '../assets/icondelete.png';
 
 export function PurchaseOrder (props) {
+  // Traer data de breakfast
   console.log(props.dataProducts, 'producto seleccionado')
-
-
-  if(props.dataProducts != undefined) {
-
-  }
   
     return (
       <>
@@ -47,7 +43,7 @@ export function PurchaseOrder (props) {
           </tr>
         </tbody>
         <>
-        {props.dataProducts != undefined ? 
+        {props.dataProducts !== undefined ? 
           <div>
             <p>{props.dataProducts.name}</p>
             <p>{props.dataProducts.price}</p>

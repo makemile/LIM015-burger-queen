@@ -28,7 +28,6 @@ function App() {
         </Route>
 
         <Route exact path="/home" component={Home} /> 
-
           {/* <Route path="/tables"component={Tables}/> */}
         <Route exact path="/order/" component={Products}>
           <Tables/>
@@ -37,7 +36,7 @@ function App() {
         
         <Route exact path="/order/:id">
           <Header/>
-          <Products/>
+          <Products />
         </Route>
 
         <Route exact path="/kitchen" component={Cocina} />

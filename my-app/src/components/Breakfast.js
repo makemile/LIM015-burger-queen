@@ -29,7 +29,7 @@ function Breakfast() {
     })
   }, [])
 
-  // Obtener data de producto seleccionado (PRUEBA)
+  // -----Obtener data de producto seleccionado por mesero (PRUEBA) -----//
   const [dataProducts, setDataProducts] = useState([]);
   // console.log(dataProducts, 'final')
 
