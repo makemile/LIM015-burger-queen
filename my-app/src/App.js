@@ -10,10 +10,12 @@ import { Products, Tables } from './components/Orders';
 import Cocina from './components/Cocina';
 import PedidosPorEntregar from './components/Pedidos_Por_Entregar';
 import PageNotFound from './components/PageNotFound';
+// import { PurchaseOrder } from './components/PurchaseOrder';
 // import {ProductsLunch, ProductsBurger} from './components/Lunch';
 
 
 function App() {
+
   return (
     <>
     <div className="app">
@@ -35,17 +37,15 @@ function App() {
           <Products/>
         </Route>
         
-        <Route exact path="/order/:id">
+         <Route exact path="/order/:id">
           <Header/>
           <Products/>
-        </Route>
+        </Route> 
 
         <Route exact path="/kitchen" component={Cocina} />
         <Route exact path="/orders" component={PedidosPorEntregar} />
         <Redirect to="/home" /> 
-        <Route component={PageNotFound} />
-          
-          
+        <Route component={PageNotFound} />          
         </Switch>
       </BrowserRouter>
     </div>

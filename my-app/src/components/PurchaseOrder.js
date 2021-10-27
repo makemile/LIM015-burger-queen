@@ -1,21 +1,13 @@
 import React from 'react';
+
 // import delete from ; '../assets/icondelete.png'
 // crear nueva colección//
 // import { collection, addDoc } from "firebase/firestore"; 
 
 // Add a new document with a generated id.
 
-export const PurchaseOrder = (props) => {
-console.log(props.lunch);
-console.log(props.burger);
-console.log(props.breakfast,);
-  // const docRef = await addDoc(collection(db, "Orders"), {
-  //   id: "",
-  //   country: "Japan"
-  // });
-  
-  
-  // console.log("Document written with ID: ", docRef.id);
+export const PushOrder = (props) => {
+console.log(props.BurgerObj);
 
     return (
       <table class="table table-borderless">
@@ -43,7 +35,7 @@ console.log(props.breakfast,);
                  <input type="number" min="0"></input>
             </td>
             <td className = "table__products">
-              <p>.....</p>
+              <p></p>
               </td>
             <td className = "table__price">
               <p>$</p>

@@ -10,7 +10,7 @@ import { db } from '../utils/firebaseConfig';
 import LinkButton from './ButtonLink';
 import Breakfast from './Breakfast'
 import { ProductsBurger, ProductsLunch } from './Lunch';
-import { PurchaseOrder } from './PurchaseOrder'
+import { PushOrder } from './PurchaseOrder'
 //PARTE KENGYA
 
 // ----------------- ESTRUCTURA PARA VISTA MESAS ---------------- //
@@ -113,9 +113,9 @@ export function Products() {
         </section>
 
       {/* TABLA DE DETALLES DE LA ORDEN */}
-         <section className="purchase-orders-section">
-          <PurchaseOrder />
-        </section> 
+          <section className="purchase-orders-section">
+           <PushOrder/> 
+        </section>  
       </main>
     </>
   );

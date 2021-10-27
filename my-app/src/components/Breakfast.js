@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import { collection, onSnapshot } from 'firebase/firestore'; // Importar Firestore
 import { db } from '../utils/firebaseConfig';
-  import { PurchaseOrder } from './PurchaseOrder';
+// import { PushOrder } from './PurchaseOrder';
 
 function Breakfast() {
   // Data de desayuno
@@ -39,6 +39,7 @@ function Breakfast() {
       }
 
   return (
+    
     <>
     <main className="breakfast-grid">
     {breakfast.map((product) => (
@@ -56,11 +57,11 @@ function Breakfast() {
           <button type="button"  onClick = {() => {
                    addProducts(product.id) 
                 } }>AGREGAR</button>
-                <>
+                {/* <>
                 
-                <PurchaseOrder breakfast={breakfast}/>
+                 <PushOrder addProducts={addProducts}/> 
                  
-                 </>
+                 </> */}
         </div>
       </div>
     ))}

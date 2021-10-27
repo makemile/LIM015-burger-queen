@@ -1,13 +1,13 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
 import { db } from "../utils/firebaseConfig";
-//  import { PurchaseOrder } from './PurchaseOrder';
 // import { collection, onSnapshot } from 'firebase/firestore'; // Importar Firestore
-//  import { PurchaseOrder } from './PurchaseOrder';
+//  import { PushOrder } from './PurchaseOrder';
 
 
 
 export const ProductsBurger = () => {
+  
 
   const [burger, setBurger] = useState([]);
 console.log(burger)
@@ -36,22 +36,13 @@ console.log(burger)
     })
   }, [])
 
-   const addProducts = (e) => {
+
+ const addProducts = (e) => {
     const capture = e
 console.log(capture,38)
      }
 
-//button radius//
-// const [selectValue, setSelectValue] = useState({
-// checked: null
-// })
-// const handleChange = (e) =>{
-// setSelectValue({
-//   checked:e.target.value
-// })
-// }
-
-
+//creando obj prosp//
   //select type burger//
 const [types,setTypes]=useState('Pollo');
 
@@ -104,16 +95,16 @@ function TypeBurger(e) {
           <button type="button" className = "btn-lunch" onClick = {() => {
                    addProducts(ProductsBurger.id) 
                 } }> AGREGAR</button>
-                 {/* <>
-                 <PurchaseOrder burger={burger}/></> */}
+                 
+                    {/* <><PushOrder BurgerObj = {BurgerObj}/></>  */}
           </div>
         </div>
       ))}
   </main>
     </>
   )
+  
   }
-
 
   const addProducts = (e) =>{
 const Capture = e;
@@ -145,6 +136,9 @@ console.log(Capture);
 
     }, [])
 
+    //Devuelve el objeto de destino modificado de const lunch// 
+    // const LunchObj = Object.assign(lunch);
+
 
     return(
       <>
@@ -166,7 +160,7 @@ console.log(Capture);
                 } }>AGREGAR</button>
                 <>
                 
-                  {/* <PurchaseOrder lunch={lunch}/>  */}
+                  {/* <PushOrder LunchObj={LunchObj}/>  */}
                 
                  </>
               </div>
