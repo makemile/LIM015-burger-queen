@@ -3,16 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../utils/firebaseConfig';
 // import { PushOrder } from './PurchaseOrder';
 
-function Breakfast() {
+function Breakfast(props) {
   // Data de desayuno
   const [breakfast, setBreakfast] = useState([]);
-  console.log(breakfast);
+  // console.log(breakfast);
 
-  // useEffect(() => {
-  //   onSnapshot(collection(db, 'Desayunos'), (snapshot) => {
-  //     setBreakfast(snapshot.docs.map((doc) => doc.data()));
-  //   });
-  // }, []);
   useEffect(() => {
     db.collection('Desayunos')
     .orderBy('name', 'asc')
@@ -27,16 +22,13 @@ function Breakfast() {
           price: doc.data().price,
         }
         bf.push(obj);
-        console.log(obj)
+        // console.log(obj)
       })
       setBreakfast([...bf]);
     })
   }, [])
 
-  const addProducts = (e) =>{
-    const Capture = e;
-    console.log(Capture);
-      }
+  // -----Obtener data de producto seleccionado por mesero (PRUEBA) -----//
 
   return (
     
@@ -54,14 +46,8 @@ function Breakfast() {
           <div className="breakfast-details">
             <h3>{product.name}</h3>
           </div>
-          <button type="button"  onClick = {() => {
-                   addProducts(product.id) 
-                } }>AGREGAR</button>
-                {/* <>
-                
-                 <PushOrder addProducts={addProducts}/> 
-                 
-                 </> */}
+          {/* <button type="button">AGREGAR</button> */}
+          <button type="button" onClick={()=> props.addProduct(product.id)}>AGREGAR</button>
         </div>
       </div>
     ))}

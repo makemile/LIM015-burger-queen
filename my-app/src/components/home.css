@@ -27,7 +27,7 @@ figure img {
   display: flex;
   flex-direction: column;
 }
-.btn-table,
+.btn-orden,
 .btn-chef {
   font-weight: bold;
   width: 250px;

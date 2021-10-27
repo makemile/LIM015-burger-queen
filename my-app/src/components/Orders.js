@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, getDoc } from "firebase/firestore";
 import Header from './Header';
 import './orders.css';
 import './breakfast.css';
@@ -10,7 +10,7 @@ import { db } from '../utils/firebaseConfig';
 import LinkButton from './ButtonLink';
 import Breakfast from './Breakfast'
 import { ProductsBurger, ProductsLunch } from './Lunch';
-import { PushOrder } from './PurchaseOrder'
+import {PurchaseOrder} from './PurchaseOrder';
 //PARTE KENGYA
 
 // ----------------- ESTRUCTURA PARA VISTA MESAS ---------------- //
@@ -74,6 +74,7 @@ export function Products() {
   // Eventos para los botones
   const [isVisibleBf, setVisibleBf] = useState(true); // contenedor de desayuno visible
   const [isVisibleLunch, setVisibleLunch] = useState(false); // contenedor de almuerzo oculto
+  const [dataBreakfast, setDataBreakfast] = useState([]);
 
   function BreakfastBtn(e) {
     if (e.target.className === 'btn-breakfast') {
@@ -86,6 +87,24 @@ export function Products() {
       setVisibleBf(false)
       setVisibleLunch(true);
     }
+  }
+
+ // --------------------------------------------------------------- //
+  const addProduct = async (id) => {
+    console.log(id)
+    // Acceder a la data del producto seleccionado
+    const breakfastRef = doc(db, "Desayunos", id);
+    // Traer la data
+    const docSnap = await getDoc(breakfastRef);
+  
+    const docData = docSnap.data();
+
+      const dataObj = {
+        id: id,
+        name: docData.name,
+        price: docData.price,
+      }
+      setDataBreakfast([...dataBreakfast, dataObj])
   }
   return (
     <>
@@ -103,7 +122,7 @@ export function Products() {
 
       {/* SECCION DE DESAYUNO */}
         <section className="menu-section-breakfast" style={{ display: isVisibleBf ? 'block' : 'none' }}>
-          <Breakfast/>
+          <Breakfast addProduct={addProduct}/>
         </section>
 
       {/* ALMUERZO */}
@@ -113,9 +132,9 @@ export function Products() {
         </section>
 
       {/* TABLA DE DETALLES DE LA ORDEN */}
-          <section className="purchase-orders-section">
-           <PushOrder/> 
-        </section>  
+         <section className="purchase-orders-section">
+          <PurchaseOrder dataBreakfast={dataBreakfast}/>
+        </section> 
       </main>
     </>
   );

@@ -1,16 +1,14 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
 import { db } from "../utils/firebaseConfig";
-// import { collection, onSnapshot } from 'firebase/firestore'; // Importar Firestore
-//  import { PushOrder } from './PurchaseOrder';
-
+import './lunch.css'
 
 
 export const ProductsBurger = () => {
   
 
   const [burger, setBurger] = useState([]);
-console.log(burger)
+// console.log(data)
   useEffect(() => {
     db.collection('Burger')
     .orderBy('name', 'asc')
@@ -36,21 +34,28 @@ console.log(burger)
     })
   }, [])
 
-
- const addProducts = (e) => {
-    const capture = e
-console.log(capture,38)
+   const addProducts = (e) => {
+    
+       e.preventDefault();
+       console.log(e)
      }
 
-//creando obj prosp//
   //select type burger//
-const [types,setTypes]=useState('Pollo');
+const [types,setTypes]=useState('Res');
 
-function TypeBurger(e) {
-    setTypes(e.target.value)
-    
+  function TypeBurger(e) {
+    setTypes(e.target.value)  
   }
+
+  // function TypeBurger(e) {
+  //   const id = e.target;
+  //  if (id === `select-btn${id}`) {
+  //   setTypes(e.target.value)  
+  //   } 
+  // }
+
   
+
   return(
   
   <>
@@ -72,7 +77,7 @@ function TypeBurger(e) {
 
             {/*select de type burger */}
           <div className="select-opt">
-            <p><select className="select-btn" value={types} onChange={TypeBurger}>
+            <p><select id={ProductsBurger.id} className={'select-btn'+ ProductsBurger.id} value={types} onChange={TypeBurger} >
               <option >{ProductsBurger.type1}</option>
               <option >{ProductsBurger.type2}</option>
               <option >{ProductsBurger.type3}</option>
@@ -84,12 +89,11 @@ function TypeBurger(e) {
             <p><strong>Agregados S/.1</strong></p>
             
 
-            <input type="radio" id="queso" name="type" value="queso"  />
-            <label htmlFor="queso">{ProductsBurger.extra2}</label>
+            <input type="checkbox" id="queso" name="type" value="queso" />
+            <label htmlFor="checkbox">{ProductsBurger.extra2}</label>
 
-            <input type="radio" id="huevo" name="type" value="huevo"   />
+            <input type="checkbox" id="huevo" name="type" value="huevo" />
             <label htmlFor="huevo">{ProductsBurger.extra1}</label>
-            
           </div>
 
           <button type="button" className = "btn-lunch" onClick = {() => {
@@ -114,7 +118,7 @@ console.log(Capture);
   export const ProductsLunch = () =>{
 
     const [lunch, setLunch] = useState([]);
-    console.log(lunch)
+    // console.log(data)
   
     useEffect(() => {
       db.collection('lunch')

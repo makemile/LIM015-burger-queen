@@ -1,26 +1,19 @@
 import React from 'react';
 
-// import delete from ; '../assets/icondelete.png'
-// crear nueva colección//
-// import { collection, addDoc } from "firebase/firestore"; 
-
-// Add a new document with a generated id.
-
-export const PushOrder = (props) => {
-console.log(props.BurgerObj);
-
+ export function PurchaseOrder (props) {
+  
     return (
-      <table class="table table-borderless">
+      <>
+      <table className="table table-borderless">
         <thead>
          <tr>
             <th scope="col">DETALLE DE LA ORDEN</th>
           </tr>
          <tr>
             <th scope="col">MESA</th>
-            <th scope="col">
-                CLIENTE
-                <input type="text"></input>
-            </th>
+            
+            <th scope="col">CLIENTE<input type="text"></input></th>
+              
           </tr>
           <tr>
             <th scope="col">CANTIDAD</th>
@@ -45,6 +38,17 @@ console.log(props.BurgerObj);
             {/* <td className = "table__delete"><img className = "table__delete" src={delete} alt="delete" /></td> */}
           </tr>
         </tbody>
+        <>
+        {props.dataBreakfast.length > 0 ? 
+          <div>
+            <p>{props.dataBreakfast[0].name}</p>
+            <p>{props.dataBreakfast[0].price}</p>
+          </div> 
+          : 
+          <div>
+            No se agregaron productos
+          </div>}
+          </>
         <div className = "row max-4">
           <div className = "col">
             <h3 className = "item-card-total">Total $0</h3>
@@ -59,7 +63,6 @@ console.log(props.BurgerObj);
         
         </div>
       </table>
-      
+      </>
     )
 }
-
