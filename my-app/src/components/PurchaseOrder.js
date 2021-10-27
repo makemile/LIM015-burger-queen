@@ -1,11 +1,22 @@
 import React from 'react';
-// import delete from ; '../assets/icondelete.png';
+// import delete from ; '../assets/icondelete.png'
+// crear nueva colección//
+// import { collection, addDoc } from "firebase/firestore"; 
 
+// Add a new document with a generated id.
 
+export const PurchaseOrder = (props) => {
+console.log(props.lunch);
+console.log(props.burger);
+console.log(props.breakfast,);
+  // const docRef = await addDoc(collection(db, "Orders"), {
+  //   id: "",
+  //   country: "Japan"
+  // });
+  
+  
+  // console.log("Document written with ID: ", docRef.id);
 
-
-
-export const PurchaseOrder = () => {
     return (
       <table class="table table-borderless">
         <thead>

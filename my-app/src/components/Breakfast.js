@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import { collection, onSnapshot } from 'firebase/firestore'; // Importar Firestore
 import { db } from '../utils/firebaseConfig';
+  import { PurchaseOrder } from './PurchaseOrder';
 
 function Breakfast() {
   // Data de desayuno
@@ -31,6 +32,12 @@ function Breakfast() {
       setBreakfast([...bf]);
     })
   }, [])
+
+  const addProducts = (e) =>{
+    const Capture = e;
+    console.log(Capture);
+      }
+
   return (
     <>
     <main className="breakfast-grid">
@@ -46,7 +53,14 @@ function Breakfast() {
           <div className="breakfast-details">
             <h3>{product.name}</h3>
           </div>
-          <button type="button">AGREGAR</button>
+          <button type="button"  onClick = {() => {
+                   addProducts(product.id) 
+                } }>AGREGAR</button>
+                <>
+                
+                <PurchaseOrder breakfast={breakfast}/>
+                 
+                 </>
         </div>
       </div>
     ))}

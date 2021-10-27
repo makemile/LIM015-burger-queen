@@ -1,13 +1,16 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
 import { db } from "../utils/firebaseConfig";
+//  import { PurchaseOrder } from './PurchaseOrder';
+// import { collection, onSnapshot } from 'firebase/firestore'; // Importar Firestore
+//  import { PurchaseOrder } from './PurchaseOrder';
 
 
 
 export const ProductsBurger = () => {
 
-  const [data, setDate] = useState([]);
-console.log(data)
+  const [burger, setBurger] = useState([]);
+console.log(burger)
   useEffect(() => {
     db.collection('Burger')
     .orderBy('name', 'asc')
@@ -29,25 +32,24 @@ console.log(data)
         }
         Burger.push(obj);
       })
-      setDate ([...Burger]);
+      setBurger ([...Burger]);
     })
   }, [])
 
    const addProducts = (e) => {
-    
-       e.preventDefault();
-       console.log(e)
+    const capture = e
+console.log(capture,38)
      }
 
 //button radius//
-const [selectValue, setSelectValue] = useState({
-checked: null
-})
-const handleChange = (e) =>{
-setSelectValue({
-  checked:e.target.value
-})
-}
+// const [selectValue, setSelectValue] = useState({
+// checked: null
+// })
+// const handleChange = (e) =>{
+// setSelectValue({
+//   checked:e.target.value
+// })
+// }
 
 
   //select type burger//
@@ -62,7 +64,7 @@ function TypeBurger(e) {
   
   <>
   <main className="burger-grid">
-  {data.map((ProductsBurger) => (
+  {burger.map((ProductsBurger) => (
         <div className="container-burger" key={ProductsBurger.id}>
           <div className="content-burger">
             <div className="visual-burger">
@@ -91,17 +93,19 @@ function TypeBurger(e) {
             <p><strong>Agregados S/.1</strong></p>
             
 
-            <input type="radio" id="queso" name="type" value="queso" checked= {selectValue.checked === 'queso' && selectValue.checked === 'huevo' } onChange={handleChange} />
-            <label for="queso">{ProductsBurger.extra2}</label>
+            <input type="radio" id="queso" name="type" value="queso"  />
+            <label htmlFor="queso">{ProductsBurger.extra2}</label>
 
-            <input type="radio" id="huevo" name="type" value="huevo"  onChange={handleChange} />
-            <label for="huevo">{ProductsBurger.extra1}</label>
-            <p>usted seleciono adiciones {selectValue.checked}</p>
+            <input type="radio" id="huevo" name="type" value="huevo"   />
+            <label htmlFor="huevo">{ProductsBurger.extra1}</label>
+            
           </div>
 
-          <button type="button" className = "btn-lunch" onClick = {(e) => {
-                  addProducts(e)
-                }}> AGREGAR</button>
+          <button type="button" className = "btn-lunch" onClick = {() => {
+                   addProducts(ProductsBurger.id) 
+                } }> AGREGAR</button>
+                 {/* <>
+                 <PurchaseOrder burger={burger}/></> */}
           </div>
         </div>
       ))}
@@ -111,14 +115,15 @@ function TypeBurger(e) {
   }
 
 
-  const addProductsLunch = (e) =>{
-console.log(e)
+  const addProducts = (e) =>{
+const Capture = e;
+console.log(Capture);
   }
 
   export const ProductsLunch = () =>{
 
-    const [data, setData] = useState([]);
-    console.log(data)
+    const [lunch, setLunch] = useState([]);
+    console.log(lunch)
   
     useEffect(() => {
       db.collection('lunch')
@@ -135,7 +140,7 @@ console.log(e)
           }
           Lunch.push(obj);
         })
-        setData([...Lunch])
+        setLunch([...Lunch])
       })
 
     }, [])
@@ -144,7 +149,7 @@ console.log(e)
     return(
       <>
       <main className="lunch-grid">
-          {data.map((ProductsLunch, index) => (
+          {lunch.map((ProductsLunch, index) => (
             <div className="container-lunch" key={index}>
               <div className="content-lunch">
                 <div className="visual-lunch">
@@ -156,9 +161,14 @@ console.log(e)
                 <div className="lunch-details">
                   <h3>{ProductsLunch.name}</h3>
                 </div>
-                <button type="button" className = "btn-lunch" onClick = {(e) => {
-                  addProductsLunch(e)
-                }}>AGREGAR</button>
+                <button type="button" className = "btn-lunch"  onClick = {() => {
+                   addProducts(ProductsLunch.id) 
+                } }>AGREGAR</button>
+                <>
+                
+                  {/* <PurchaseOrder lunch={lunch}/>  */}
+                
+                 </>
               </div>
             </div>
           ))}

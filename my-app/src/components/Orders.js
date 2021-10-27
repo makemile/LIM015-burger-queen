@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { doc, updateDoc } from "firebase/firestore";
 import Header from './Header';
 import './orders.css';
-import Breakfast from './Breakfast';
 import './breakfast.css';
 // import Lunch from './Lunch';
 import './lunch.css';
 import './tables.css';
 import { db } from '../utils/firebaseConfig';
 import LinkButton from './ButtonLink';
+import Breakfast from './Breakfast'
 import { ProductsBurger, ProductsLunch } from './Lunch';
 import { PurchaseOrder } from './PurchaseOrder'
 //PARTE KENGYA
@@ -114,9 +114,11 @@ export function Products() {
 
       {/* TABLA DE DETALLES DE LA ORDEN */}
          <section className="purchase-orders-section">
-          <PurchaseOrder/>
+          <PurchaseOrder />
         </section> 
       </main>
     </>
   );
 };
+
+
