@@ -1,6 +1,36 @@
 import React from "react";
+import {createStore} from 'redux'
+
+const actionIncremented = {
+  type: '@counter/incremented'
+}
+
+const actionDecremented = {
+  type: '@counter/decremented'
+}
+
+const counterReducer = (state = 0, action) => {
+  switch(action.type){
+      case '@counter/incremented':
+          return state + 1; 
+
+      case '@counter/decremented':
+          return state - 1;
+      default:
+          return state
+
+  } 
+}
+
+export const Store = createStore(counterReducer)
+export const subscribe = Store.subscribe (() =>{
+  console.log(Store.getState())
+})
+Store.dispatch(actionIncremented)
+Store.dispatch(actionDecremented)
 
 export function PurchaseOrder(props) {
+
   return (
     <>
       <table className="table table-borderless">
@@ -25,9 +55,11 @@ export function PurchaseOrder(props) {
           {props.dataBreakfast.map((breakfast) => (
             <tr key={breakfast.id}>
               <td className="table__cantidad">
-                <input type="number" min="0">
-                  {breakfast.num}
-                </input>
+                <div> <button onClick = {() => Store.dispatch(actionIncremented)}>+</button></div>
+                <div  >
+                 {Store.getState()}
+                </div>
+                <div> <button onClick = {() => Store.dispatch(actionDecremented)}>-</button></div>
               </td>
               <td className="table__products">
                 <p>{breakfast.name}</p>
