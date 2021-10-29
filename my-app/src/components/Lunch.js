@@ -31,25 +31,13 @@ export const ProductsBurger = (props) => {
       });
   }, []);
 
-  //  const addProducts = (e) => {
-
-  //      e.preventDefault();
-  //      console.log(e)
-  //    }
-
   //select type burger//
   const [types, setTypes] = useState("Res");
 
   function TypeBurger(e) {
+    console.log(e.target)
     setTypes(e.target.value);
   }
-
-  // function TypeBurger(e) {
-  //   const id = e.target;
-  //  if (id === `select-btn${id}`) {
-  //   setTypes(e.target.value)
-  //   }
-  // }
 
   return (
     <>
@@ -79,13 +67,13 @@ export const ProductsBurger = (props) => {
                 <p>
                   <select
                     id={ProductsBurger.id}
-                    className={"select-btn" + ProductsBurger.id}
+                    className={ProductsBurger.id}
                     value={types}
                     onChange={TypeBurger}
                   >
-                    <option>{ProductsBurger.type1}</option>
-                    <option>{ProductsBurger.type2}</option>
-                    <option>{ProductsBurger.type3}</option>
+                    <option value={ProductsBurger.type1 + ProductsBurger.id}>{ProductsBurger.type1}</option>
+                    <option value={ProductsBurger.type2 + ProductsBurger.id}>{ProductsBurger.type2}</option>
+                    <option value={ProductsBurger.type3 + ProductsBurger.id}>{ProductsBurger.type3}</option>
                   </select>
                 </p>
               </div>
