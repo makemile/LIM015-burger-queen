@@ -32,7 +32,7 @@ export const ProductsBurger = (props) => {
   }, []);
 
   //select type burger//
-  const [types, setTypes] = useState("Res");
+  const [types, setTypes] = useState([]);
 
   function TypeBurger(e) {
     console.log(e.target)
@@ -76,19 +76,6 @@ export const ProductsBurger = (props) => {
                     <option value={ProductsBurger.type3 + ProductsBurger.id}>{ProductsBurger.type3}</option>
                   </select>
                 </p>
-              </div>
-
-              {/*extras... s/1 */}
-              <div className="additions">
-                <p>
-                  <strong>Agregados S/.1</strong>
-                </p>
-
-                <input type="checkbox" id="queso" name="type" value="queso" />
-                <label htmlFor="checkbox">{ProductsBurger.extra2}</label>
-
-                <input type="checkbox" id="huevo" name="type" value="huevo" />
-                <label htmlFor="huevo">{ProductsBurger.extra1}</label>
               </div>
 
               <button

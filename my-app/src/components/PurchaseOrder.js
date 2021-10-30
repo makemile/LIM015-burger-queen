@@ -1,4 +1,7 @@
 import React from "react";
+import './purchaseOrder.css';
+// CONTADOR
+
 
 export function PurchaseOrder(props) {
   return (
@@ -25,9 +28,12 @@ export function PurchaseOrder(props) {
           {props.dataBreakfast.map((breakfast) => (
             <tr key={breakfast.id}>
               <td className="table__cantidad">
-                <input type="number" min="0">
+                {/* <input type="number" min="0">
                   {breakfast.num}
-                </input>
+                </input> */}
+                <button>+</button>
+                <p>Counter</p>
+                <button>-</button>
               </td>
               <td className="table__products">
                 <p>{breakfast.name}</p>
@@ -45,9 +51,12 @@ export function PurchaseOrder(props) {
           {props.dataBurger.map((lunch) => (
             <tr key={lunch.id}>
               <td className="table__cantidad">
-                <input type="number" min="0">
+                {/* <input type="number" min="0">
                   {lunch.num}
-                </input>
+                </input> */}
+                <button>+</button>
+                <p>Counter</p>
+                <button>-</button>
               </td>
               <td className="table__products">
                 <p>{lunch.name}</p>
@@ -68,9 +77,12 @@ export function PurchaseOrder(props) {
           {props.dataLunch.map((lunch) => (
             <tr key={lunch.id}>
               <td className="table__cantidad">
-                <input type="number" min="0">
+                {/* <input type="number" min="0">
                   {lunch.num}
-                </input>
+                </input> */}
+                  <button>+</button>
+                  <p>Counter</p>
+                  <button>-</button>
               </td>
               <td className="table__products">
                 <p>{lunch.name}</p>
