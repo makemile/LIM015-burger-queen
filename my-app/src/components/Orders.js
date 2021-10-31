@@ -76,8 +76,8 @@ export function Products() {
   const [isVisibleBf, setVisibleBf] = useState(true); // contenedor de desayuno visible
   const [isVisibleLunch, setVisibleLunch] = useState(false); // contenedor de almuerzo oculto
   const [dataBreakfast, setDataBreakfast] = useState([]);
-  const [dataBurger, setDataBurger] = useState([]);
-  const [dataLunch, setDataLunch] = useState([]);
+  
+  
 
   function BreakfastBtn(e) {
     if (e.target.className === "btn-breakfast") {
@@ -107,14 +107,16 @@ export function Products() {
       id: id,
       name: docData.name,
       price: docData.price,
+      count: 0
     };
     setDataBreakfast([...dataBreakfast, dataObj]);
   };
 
   // ------------------------Burger-------------------------------- //
+  const [dataBurger, setDataBurger] = useState([]);
   const AddBurger = async (id) => {
-    console.log(id);
     const DataBurger = doc(db, "Burger", id);
+    console.log(DataBurger);
     const GetBurger = await getDoc(DataBurger);
     const DocDataId = GetBurger.data();
     const dataObj = {
@@ -124,13 +126,15 @@ export function Products() {
       price2: DocDataId.price2,
       extra1: DocDataId.extra1,
       extra2: DocDataId.extra2,
+      count: 0 
+
     };
     setDataBurger([...dataBurger, dataObj]);
     console.log(dataBurger);
   };
   // ------------------------Lunch-------------------------------- //
-
-  const AddLunch = async (id) => {
+  const [dataLunch, setDataLunch] = useState([]);
+    const AddLunch = async (id) => {
     const DataLunch = doc(db, "lunch", id);
     const GetLunch = await getDoc(DataLunch);
     const DocDataIdLunch = GetLunch.data();
@@ -141,6 +145,7 @@ export function Products() {
     };
     setDataLunch([...dataLunch, dataObj]);
   };
+
 
   return (
     <>
