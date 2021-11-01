@@ -7,7 +7,6 @@ import { counterReducer } from "./Reducer";
 export function PurchaseOrder(props) {
 const [state, dispatch] = useReducer(counterReducer, initialState);
 
-
   return (
     <>
       <table className="table table-borderless">
@@ -33,7 +32,7 @@ const [state, dispatch] = useReducer(counterReducer, initialState);
             <tr key={breakfast.id}>
               <td className="table__cantidad">
                  <div> <button onClick = {() => dispatch({type: 'incremented'})}>+</button></div> 
-                 <div  >
+                 <div>
                   {state.count} 
                  </div> 
                  <div> <button onClick = {() => dispatch({type: 'decremented'})}>-</button></div> 

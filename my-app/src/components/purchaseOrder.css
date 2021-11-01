@@ -1,0 +1,11 @@
+
+.table__cantidad {
+    display: inline-flex;
+    align-items: baseline;
+}
+
+.table__cantidad button {
+    width: 36px;
+    height: 36px;
+    background-color: lightgrey;
+}
