@@ -9,7 +9,9 @@ export function Menu() {
 
     // Data de productos seleccionados
     const [productsSelected, setProductsSelected] = useState([]);
-    console.log(productsSelected);
+    console.log(productsSelected, 'productos seleccionados')
+
+    // console.log(productsSelected);
   
     useEffect(() => {
       db.collection("Products")
@@ -32,9 +34,8 @@ export function Menu() {
         });
     }, []);
 
-   
+ 
     const addProduct = async (id) => {
-        console.log(id);
         // Acceder a la data del producto seleccionado
         const productsRef = doc(db, 'Products', id);
         // Traer la data
@@ -46,10 +47,23 @@ export function Menu() {
           id: id,
           name: docData.name,
           price: docData.price,
-          count: 0
+          count: 1
         };
-        
-        setProductsSelected([...productsSelected, dataObj]);
+
+        const existsInArray = productsSelected.some((product) => product.id === dataObj.id)
+        if(existsInArray) {
+            const products = productsSelected.map((product) => {
+                if(product.id === dataObj.id) {
+                    product.count = product.count + 1
+                    return product
+                } else {
+                    return product
+                }
+            }) 
+            setProductsSelected([...products]);
+        } else {
+            setProductsSelected([...productsSelected, dataObj]);
+        }
       };
 
     return (
