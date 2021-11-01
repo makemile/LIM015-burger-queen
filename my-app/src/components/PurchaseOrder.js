@@ -1,12 +1,7 @@
 import React from "react";
-<<<<<<< HEAD
-import './purchaseOrder.css';
-// CONTADOR
-=======
 import { useReducer } from "react";
 import { initialState } from "./Redux";
 import { counterReducer } from "./Redux";
->>>>>>> 91b01b2925d296e5650ebc386a0e429e183d188a
 
 
 export function PurchaseOrder(props) {
