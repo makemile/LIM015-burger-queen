@@ -7,4 +7,3 @@ export const  BurgerReducer = (state = [], action) =>  {
 
     return state
 }
-

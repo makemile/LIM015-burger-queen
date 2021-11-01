@@ -1,7 +1,7 @@
 import React from "react";
 import { useReducer } from "react";
-import { initialState } from "./Redux";
-import { counterReducer } from "./Redux";
+import { initialState } from "./Reducer";
+import { counterReducer } from "./Reducer";
 
 
 export function PurchaseOrder(props) {
