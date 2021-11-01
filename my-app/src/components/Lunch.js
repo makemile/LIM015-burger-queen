@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { db } from "../utils/firebaseConfig";
 import "./lunch.css";
 
+
 export const ProductsBurger = (props) => {
   const [burger, setBurger] = useState([]);
   // console.log(data)
@@ -79,7 +80,7 @@ export const ProductsBurger = (props) => {
               </div>
 
               <button
-                type="button"
+                type="ADD_TO_CART"
                 className="btn-lunch"
                 onClick={() => {
                   props.AddBurger(ProductsBurger.id);
@@ -97,9 +98,9 @@ export const ProductsBurger = (props) => {
     </>
   );
 };
+
 export const ProductsLunch = (props) => {
   const [lunch, setLunch] = useState([]);
-
   useEffect(() => {
     db.collection("lunch")
       .orderBy("name", "asc")
@@ -118,7 +119,7 @@ export const ProductsLunch = (props) => {
         setLunch([...Lunch]);
       });
   }, []);
-
+  
   return (
     <>
       <main className="lunch-grid">
@@ -141,16 +142,22 @@ export const ProductsLunch = (props) => {
                 <h3>{ProductsLunch.name}</h3>
               </div>
               <button
-                type="button"
+                type="ADD_TO_CART"
                 className="btn-lunch"
                 onClick={() => props.AddLunch(ProductsLunch.id)}
               >
                 AGREGAR
               </button>
+              
             </div>
+            
           </div>
         ))}
+        
       </main>
-    </>
-  );
-};
+      
+    </>     
+  )
+  
+
+}

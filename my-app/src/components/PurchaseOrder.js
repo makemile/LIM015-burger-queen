@@ -1,9 +1,18 @@
 import React from "react";
+<<<<<<< HEAD
 import './purchaseOrder.css';
 // CONTADOR
+=======
+import { useReducer } from "react";
+import { initialState } from "./Redux";
+import { counterReducer } from "./Redux";
+>>>>>>> 91b01b2925d296e5650ebc386a0e429e183d188a
 
 
 export function PurchaseOrder(props) {
+const [state, dispatch] = useReducer(counterReducer, initialState);
+
+
   return (
     <>
       <table className="table table-borderless">
@@ -25,15 +34,14 @@ export function PurchaseOrder(props) {
           </tr>
         </thead>
         <tbody>
-          {props.dataBreakfast.map((breakfast) => (
+          { props.dataBreakfast.map((breakfast) => (
             <tr key={breakfast.id}>
               <td className="table__cantidad">
-                {/* <input type="number" min="0">
-                  {breakfast.num}
-                </input> */}
-                <button>+</button>
-                <p>Counter</p>
-                <button>-</button>
+                 <div> <button onClick = {() => dispatch({type: 'incremented'})}>+</button></div> 
+                 <div  >
+                  {state.count} 
+                 </div> 
+                 <div> <button onClick = {() => dispatch({type: 'decremented'})}>-</button></div> 
               </td>
               <td className="table__products">
                 <p>{breakfast.name}</p>
@@ -48,15 +56,14 @@ export function PurchaseOrder(props) {
         </tbody>
 
         <tbody>
-          {props.dataBurger.map((lunch) => (
+          {props.dataBurger.length > 0 && props.dataBurger.map((lunch) => (
             <tr key={lunch.id}>
               <td className="table__cantidad">
-                {/* <input type="number" min="0">
-                  {lunch.num}
-                </input> */}
-                <button>+</button>
-                <p>Counter</p>
-                <button>-</button>
+              <div> <button onClick = {() => dispatch({type: 'incremented'})}>+</button></div> 
+                 <div  >
+                  {state.count} 
+                 </div> 
+                 <div> <button onClick = {() => dispatch({type: 'decremented'})}>-</button></div>
               </td>
               <td className="table__products">
                 <p>{lunch.name}</p>
@@ -74,15 +81,14 @@ export function PurchaseOrder(props) {
         </tbody>
 
         <tbody>
-          {props.dataLunch.map((lunch) => (
+          {props.dataLunch.length > 0 && props.dataLunch.map((lunch) => (
             <tr key={lunch.id}>
               <td className="table__cantidad">
-                {/* <input type="number" min="0">
-                  {lunch.num}
-                </input> */}
-                  <button>+</button>
-                  <p>Counter</p>
-                  <button>-</button>
+              <div> <button onClick = {() => dispatch({type: 'incremented'})}>+</button></div><div  >
+                  {state.count} 
+                 </div><div><button onClick = {() => dispatch({type: 'decremented'})}>-</button></div>
+                  
+                 
               </td>
               <td className="table__products">
                 <p>{lunch.name}</p>
@@ -98,7 +104,8 @@ export function PurchaseOrder(props) {
 
         <div className="row max-4">
           <div className="col">
-            <h3 className="item-card-total">Total $0</h3>
+            <h3 className="item-card-total">Total: ${props.dataLunch.reduce((sum, lunch) => sum + Number(lunch.price) * Number(state.count),0)}</h3>
+          
           </div>
           <div className="row max-4">
             <div className="col d-flex justify content-end">
