@@ -9,9 +9,8 @@ export function Menu() {
 
     // Data de productos seleccionados
     const [productsSelected, setProductsSelected] = useState([]);
+    
     console.log(productsSelected, 'productos seleccionados')
-
-    // console.log(productsSelected);
   
     useEffect(() => {
       db.collection("Products")
@@ -50,8 +49,8 @@ export function Menu() {
           count: 1
         };
 
-        const existsInArray = productsSelected.some((product) => product.id === dataObj.id)
-        if(existsInArray) {
+        const existInArray = productsSelected.some((product) => product.id === dataObj.id)
+        if(existInArray) {
             const products = productsSelected.map((product) => {
                 if(product.id === dataObj.id) {
                     product.count = product.count + 1
