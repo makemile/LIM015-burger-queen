@@ -1,11 +1,11 @@
-import React from "react";
-// import { useReducer } from "react";
-// import { initialState } from "./Redux";
-// import { counterReducer } from "./Redux";
+import React, {useReducer} from "react";
+import { initialState, counterReducer} from '../Redux';
 
 
-export function PurchaseOrder() {
-// const [state, dispatch] = useReducer(counterReducer, initialState);
+export function PurchaseOrder(props) {
+  // console.log(props.productsSelected)
+  
+ const [state, dispatch] = useReducer(counterReducer, initialState);
 
   return (
     <>
@@ -27,29 +27,31 @@ export function PurchaseOrder() {
             <th scope="col">PRECIO</th>
           </tr>
         </thead>
-        {/* <tbody>
-          { props.dataBreakfast.map((breakfast) => (
-            <tr key={breakfast.id}>
+        <tbody>
+          { props.productsSelected.map((product) => (
+            <tr key={product.id}>
               <td className="table__cantidad">
                  <div> <button onClick = {() => dispatch({type: 'incremented'})}>+</button></div> 
                  <div>
-                  {state.count} 
+                  {/* {state.count}  */}
+                  {product.count} 
                  </div> 
                  <div> <button onClick = {() => dispatch({type: 'decremented'})}>-</button></div> 
               </td>
               <td className="table__products">
-                <p>{breakfast.name}</p>
+                <p>{product.name}</p>
               </td>
               <td className="table__price">
-                <p>${breakfast.price}</p>
+                <p>${product.price}</p>
               </td>
             </tr>
           ))}
-        </tbody> */}
+        </tbody>
+
 
         <div className="row max-4">
           <div className="col">
-            <h3 className="item-card-total">Total: </h3>
+            <h3 className="item-card-total">Total: ${props.productsSelected.reduce((sum, product) => sum + Number(product.price) * Number(product.count),0)}</h3>
           
           </div>
           <div className="row max-4">
@@ -63,6 +65,7 @@ export function PurchaseOrder() {
             </div>
           </div>
         </div>
+
       </table>
     </>
   );

@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { db } from '../../utils/firebaseConfig';
-import { doc, getDoc } from "firebase/firestore";
+// import { doc, getDoc } from "firebase/firestore";
+// import { PurchaseOrder } from '../purchaseOrder/PurchaseOrder';
 
-export function Menu() {
-
+export function Menu(props) {
     // Data de productos
     const [products, setProducts] = useState([]);
 
-    // Data de productos seleccionados
-    const [productsSelected, setProductsSelected] = useState([]);
-    
-    console.log(productsSelected, 'productos seleccionados')
-  
     useEffect(() => {
       db.collection("Products")
         .orderBy("name", "asc")
@@ -33,37 +28,43 @@ export function Menu() {
         });
     }, []);
 
- 
-    const addProduct = async (id) => {
-        // Acceder a la data del producto seleccionado
-        const productsRef = doc(db, 'Products', id);
-        // Traer la data
-        const docSnap = await getDoc( productsRef);
+    // ------------------ FUNCIÓN PARA AGREGAR PRODUCTO ---------------- //
     
-        const docData = docSnap.data();
+    // // Data de productos seleccionados
+    // const [productsSelected, setProductsSelected] = useState([]);
+    // console.log(productsSelected, 'productos seleccionados')
+      
+    // const addProduct = async (id) => {
+    //     // Acceder a la data del producto seleccionado
+    //     const productsRef = doc(db, 'Products', id);
+    //     // Traer la data
+    //     const docSnap = await getDoc( productsRef);
     
-        const dataObj = {
-          id: id,
-          name: docData.name,
-          price: docData.price,
-          count: 1
-        };
+    //     const docData = docSnap.data();
+    
+    //     const dataObj = {
+    //       id: id,
+    //       name: docData.name,
+    //       price: docData.price,
+    //       count: 1
+    //     };
 
-        const existInArray = productsSelected.some((product) => product.id === dataObj.id)
-        if(existInArray) {
-            const products = productsSelected.map((product) => {
-                if(product.id === dataObj.id) {
-                    product.count = product.count + 1
-                    return product
-                } else {
-                    return product
-                }
-            }) 
-            setProductsSelected([...products]);
-        } else {
-            setProductsSelected([...productsSelected, dataObj]);
-        }
-      };
+    //     const existInArray = productsSelected.some((product) => product.id === dataObj.id)
+    //     if(existInArray) {
+    //         const products = productsSelected.map((product) => {
+    //             if(product.id === dataObj.id) {
+    //                 product.count = product.count + 1
+    //                 return product
+    //             } else {
+    //                 return product
+    //             }
+    //         }) 
+    //         setProductsSelected([...products]);
+    //     } else {
+    //         setProductsSelected([...productsSelected, dataObj]);
+    //     }
+    // }
+
 
     return (
         <>
@@ -87,7 +88,7 @@ export function Menu() {
                     <h3>{product.name}</h3>
                 </div>
 
-                <button type="button" onClick={() => addProduct(product.id)}>
+                <button type="button" onClick={() => props.addProduct(product.id)}>
                     AGREGAR
                 </button>
 
