@@ -4,12 +4,11 @@ import { doc, getDoc } from "firebase/firestore";
 
 export function Menu() {
 
-    // Data de productos
+  const [productsSelected, setProductsSelected] = useState([]);
+  console.log(productsSelected)
     const [products, setProducts] = useState([]);
-
-    // Data de productos seleccionados
-    const [productsSelected, setProductsSelected] = useState([]);
-    console.log(productsSelected, 'productos seleccionados')
+   
+    // console.log(productsSelected, 'productos seleccionados')
 
     // console.log(productsSelected);
   
@@ -34,9 +33,9 @@ export function Menu() {
         });
     }, []);
 
- 
+    
     const addProduct = async (id) => {
-        // Acceder a la data del producto seleccionado
+      console.log(id)
         const productsRef = doc(db, 'Products', id);
         // Traer la data
         const docSnap = await getDoc( productsRef);
@@ -50,16 +49,18 @@ export function Menu() {
           count: 1
         };
 
-        const existsInArray = productsSelected.some((product) => product.id === dataObj.id)
-        if(existsInArray) {
+        const existInArray = productsSelected.some((product) => product.id === dataObj.id)
+        if(existInArray) {
             const products = productsSelected.map((product) => {
                 if(product.id === dataObj.id) {
+                  console.log(product)
                     product.count = product.count + 1
                     return product
                 } else {
                     return product
                 }
             }) 
+           
             setProductsSelected([...products]);
         } else {
             setProductsSelected([...productsSelected, dataObj]);
