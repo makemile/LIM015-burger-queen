@@ -1,12 +1,23 @@
 import React from "react";
-// import { useReducer } from "react";
-// import { initialState } from "./Redux";
-// import { counterReducer } from "./Redux";
 
-
-export function PurchaseOrder() {
-// const [state, dispatch] = useReducer(counterReducer, initialState);
-
+export function PurchaseOrder(props) {
+  console.log(props.productsSelected)
+     // ------------------ FUNCIÓN PARA ELIMINAR PRODUCTO ---------------- //
+    //  const deleteProduct = (index) => {
+    //      props.productsSelected.map((product, i) => {
+    //        if(product.id === index) { 
+    //          if(product.count === 1) {
+    //            const deleteId = props.productsSelected.filter((product) => product.id !== index)
+    //            props.productsSelected(deleteId)
+    //             console.log(deleteId)
+    //          } else {
+    //            product.count = product.count - 1;
+    //          }
+    //        }
+    //      })
+    //  }
+    
+  
   return (
     <>
       <table className="table table-borderless">
@@ -27,30 +38,32 @@ export function PurchaseOrder() {
             <th scope="col">PRECIO</th>
           </tr>
         </thead>
-        {/* <tbody>
-          { props.dataBreakfast.map((breakfast) => (
-            <tr key={breakfast.id}>
+        <tbody>
+          {props.productsSelected.map((product) => (
+            <tr key={product.id}>
               <td className="table__cantidad">
-                 <div> <button onClick = {() => dispatch({type: 'incremented'})}>+</button></div> 
+                 <div> <button onClick = {() => props.addProduct(product.id)}>+</button></div> 
                  <div>
-                  {state.count} 
+                  {/* {state.count}  */}
+                  {product.count} 
                  </div> 
-                 <div> <button onClick = {() => dispatch({type: 'decremented'})}>-</button></div> 
+                 <div> <button onClick = {() => props.reduceProducts(product.id)}>-</button></div> 
               </td>
               <td className="table__products">
-                <p>{breakfast.name}</p>
+                <p>{product.name}</p>
               </td>
               <td className="table__price">
-                <p>${breakfast.price}</p>
+                <p>${product.price}</p>
+                {/* <button onClick = {() => deleteProduct(product.id)}>borrar</button> */}
+                <button>borrar</button>
               </td>
-            </tr>
+            </tr>   
           ))}
-        </tbody> */}
+        </tbody>
 
         <div className="row max-4">
           <div className="col">
-            <h3 className="item-card-total">Total: </h3>
-          
+            <h3 className="item-card-total">Total: ${props.productsSelected.reduce((sum, product) => sum + Number(product.price) * Number(product.count),0)}</h3>
           </div>
           <div className="row max-4">
             <div className="col d-flex justify content-end">
@@ -63,6 +76,7 @@ export function PurchaseOrder() {
             </div>
           </div>
         </div>
+
       </table>
     </>
   );
