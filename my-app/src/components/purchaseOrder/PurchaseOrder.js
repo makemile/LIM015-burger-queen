@@ -28,6 +28,7 @@ export function PurchaseOrder(props) {
           </tr>
         </thead>
         <tbody>
+
           { props.productsSelected.map((product) => (
             <tr key={product.id}>
               <td className="table__cantidad">
@@ -45,7 +46,7 @@ export function PurchaseOrder(props) {
               <td className="table__price">
                 <p>${product.price}</p>
               </td>
-            </tr>
+            </tr>   
           ))}
         </tbody>
 
