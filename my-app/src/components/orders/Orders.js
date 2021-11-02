@@ -13,12 +13,12 @@ export function Orders() {
     //         const bf = products.filter((product) => product.type == 'desayuno');
     //         console.log(bf)
     //         console.log(container)
-    //         container.style.display = 'inline';
+           
         
     //     } else if (e.target.className == 'btn-lunch') {
     //         const lunch = products.filter((product) => product.type == 'almuerzo');
     //          console.log(lunch)
-    //          container.style.display = 'inline';
+             
     //     }
     //   }
 
@@ -48,7 +48,7 @@ export function Orders() {
 
         {/* SECCION DE PRODUCTOS */}
         <section className="menu-section-breakfast">
-            <Menu/>
+            <Menu />
         </section>
 
         {/* TABLA DE DETALLES DE LA ORDEN */}
