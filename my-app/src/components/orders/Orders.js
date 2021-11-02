@@ -120,7 +120,8 @@ export function Orders() {
          }
      }
 
-     const reduceProducts = async(id) => {
+    // ------------------ FUNCIÓN PARA REDUCIR PRODUCTO ---------------- //
+    const reduceProducts = async(id) => {
         // Acceder a la data del producto seleccionado
         const productsRef = doc(db, 'Products', id);
         // Traer la data
@@ -137,12 +138,14 @@ export function Orders() {
 
         const existInArray = productsSelected.some((product) => product.id === dataObj.id)
         if(existInArray) {
+          // const empty = []
             const products = productsSelected.map((product) => {
                 if(product.id === dataObj.id && product.count > 0) {
                     product.count = product.count - 1
                     return product
                 } else {
-                    return product
+                  return product
+                    // return empty
                 }
             }) 
             setProductsSelected([...products]);
@@ -150,6 +153,7 @@ export function Orders() {
             setProductsSelected([...productsSelected, dataObj]);
         }
      }
+
 
     // ------------------ ESTRUCTURA PARA VISTA DE MENU Y DETALLE DE COMPRA ---------------- //
 

@@ -1,12 +1,23 @@
-import React, {useReducer} from "react";
-import { initialState, counterReducer} from '../Redux';
-
+import React from "react";
 
 export function PurchaseOrder(props) {
-  // console.log(props.productsSelected)
+  console.log(props.productsSelected)
+     // ------------------ FUNCIÓN PARA ELIMINAR PRODUCTO ---------------- //
+    //  const deleteProduct = (index) => {
+    //      props.productsSelected.map((product, i) => {
+    //        if(product.id === index) { 
+    //          if(product.count === 1) {
+    //            const deleteId = props.productsSelected.filter((product) => product.id !== index)
+    //            props.productsSelected(deleteId)
+    //             console.log(deleteId)
+    //          } else {
+    //            product.count = product.count - 1;
+    //          }
+    //        }
+    //      })
+    //  }
+    
   
- const [state, dispatch] = useReducer(counterReducer, initialState);
-
   return (
     <>
       <table className="table table-borderless">
@@ -28,12 +39,10 @@ export function PurchaseOrder(props) {
           </tr>
         </thead>
         <tbody>
-
-          { props.productsSelected.map((product) => (
+          {props.productsSelected.map((product) => (
             <tr key={product.id}>
               <td className="table__cantidad">
                  <div> <button onClick = {() => props.addProduct(product.id)}>+</button></div> 
-                 {/* onClick={() => props.addProduct(product.id) */}
                  <div>
                   {/* {state.count}  */}
                   {product.count} 
@@ -45,16 +54,16 @@ export function PurchaseOrder(props) {
               </td>
               <td className="table__price">
                 <p>${product.price}</p>
+                {/* <button onClick = {() => deleteProduct(product.id)}>borrar</button> */}
+                <button>borrar</button>
               </td>
             </tr>   
           ))}
         </tbody>
 
-
         <div className="row max-4">
           <div className="col">
             <h3 className="item-card-total">Total: ${props.productsSelected.reduce((sum, product) => sum + Number(product.price) * Number(product.count),0)}</h3>
-          
           </div>
           <div className="row max-4">
             <div className="col d-flex justify content-end">
