@@ -120,6 +120,37 @@ export function Orders() {
          }
      }
 
+     const reduceProducts = async(id) => {
+        // Acceder a la data del producto seleccionado
+        const productsRef = doc(db, 'Products', id);
+        // Traer la data
+        const docSnap = await getDoc( productsRef);
+    
+        const docData = docSnap.data();
+    
+        const dataObj = {
+          id: id,
+          name: docData.name,
+          price: docData.price,
+          count: 1
+        };
+
+        const existInArray = productsSelected.some((product) => product.id === dataObj.id)
+        if(existInArray) {
+            const products = productsSelected.map((product) => {
+                if(product.id === dataObj.id) {
+                    product.count = product.count - 1
+                    return product
+                } else {
+                    return product
+                }
+            }) 
+            setProductsSelected([...products]);
+        } else {
+            setProductsSelected([...productsSelected, dataObj]);
+        }
+     }
+
     // ------------------ ESTRUCTURA PARA VISTA DE MENU Y DETALLE DE COMPRA ---------------- //
 
     return (
@@ -154,7 +185,9 @@ export function Orders() {
       {/* TABLA DE DETALLES DE LA ORDEN */}
       <section className="purchase-orders-section">
           <PurchaseOrder
-          productsSelected={productsSelected}/>
+          productsSelected={productsSelected}
+          addProduct={addProduct} 
+          reduceProducts={reduceProducts}/>
       </section>
     </main>
   </>

@@ -31,12 +31,13 @@ export function PurchaseOrder(props) {
           { props.productsSelected.map((product) => (
             <tr key={product.id}>
               <td className="table__cantidad">
-                 <div> <button onClick = {() => dispatch({type: 'incremented'})}>+</button></div> 
+                 <div> <button onClick = {() => props.addProduct(product.id)}>+</button></div> 
+                 {/* onClick={() => props.addProduct(product.id) */}
                  <div>
                   {/* {state.count}  */}
                   {product.count} 
                  </div> 
-                 <div> <button onClick = {() => dispatch({type: 'decremented'})}>-</button></div> 
+                 <div> <button onClick = {() => props.reduceProducts(product.id)}>-</button></div> 
               </td>
               <td className="table__products">
                 <p>{product.name}</p>
