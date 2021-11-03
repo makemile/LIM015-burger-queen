@@ -65,29 +65,15 @@ export function Tables() {
 // ----------------- ESTRUCTURA PARA VISTA DE ORDERS ---------------- //
 
 export function Orders() {
-
-    // Función para botones 
-    // function showAccordingToType(e) {
-    //    const container = document.getElementsByClassName('container-breakfast');
-
-    //     if (e.target.className == 'btn-breakfast') {
-    //         const bf = products.filter((product) => product.type == 'desayuno');
-    //         console.log(bf)
-    //         console.log(container)
-           
-        
-    //     } else if (e.target.className == 'btn-lunch') {
-    //         const lunch = products.filter((product) => product.type == 'almuerzo');
-    //          console.log(lunch)
-             
-    //     }
-    //   }
     
     // ------------------ FUNCIÓN PARA AGREGAR PRODUCTO ---------------- //
 
      // Data de productos seleccionados
      const [productsSelected, setProductsSelected] = useState([]);
-    //  console.log(productsSelected, 'productos seleccionados')
+
+     // Estados de menu según su tipo
+     const [type, setType] = useState('desayuno');
+
        
      const addProduct = async (id) => {
          // Acceder a la data del producto seleccionado
@@ -120,6 +106,7 @@ export function Orders() {
          }
      }
 
+
     // ------------------ FUNCIÓN PARA REDUCIR PRODUCTO ---------------- //
     const reduceProducts = async(id) => {
         // Acceder a la data del producto seleccionado
@@ -138,14 +125,12 @@ export function Orders() {
 
         const existInArray = productsSelected.some((product) => product.id === dataObj.id)
         if(existInArray) {
-          // const empty = []
             const products = productsSelected.map((product) => {
                 if(product.id === dataObj.id && product.count > 0) {
                     product.count = product.count - 1
                     return product
                 } else {
                   return product
-                    // return empty
                 }
             }) 
             setProductsSelected([...products]);
@@ -153,7 +138,7 @@ export function Orders() {
             setProductsSelected([...productsSelected, dataObj]);
         }
      }
-
+    
 
     // ------------------ ESTRUCTURA PARA VISTA DE MENU Y DETALLE DE COMPRA ---------------- //
 
@@ -167,13 +152,13 @@ export function Orders() {
       <section className="menu-section">
 
         <div className="menu-buttons-container">
-          <button type="button" className="btn-breakfast"
-          // onClick={(e) => showAccordingToType(e)}
+          <button type="button" className="btn-breakfast" id="desayuno"
+          onClick={()=> setType('desayuno')}
           >
             DESAYUNO
           </button>
-          <button type="button" className="btn-lunch"
-          // onClick={(e) => showAccordingToType(e)}
+          <button type="button" className="btn-lunch" id="almuerzo"
+          onClick={()=> setType('almuerzo')}
           >
             ALMUERZO
           </button>
@@ -183,13 +168,14 @@ export function Orders() {
 
       {/* SECCION DE PRODUCTOS */}
       <section className="menu-section-breakfast">
-          <Menu addProduct={addProduct} />
+          <Menu addProduct={addProduct} type={type}/>
       </section>
 
       {/* TABLA DE DETALLES DE LA ORDEN */}
       <section className="purchase-orders-section">
           <PurchaseOrder
           productsSelected={productsSelected}
+          setProductsSelected={setProductsSelected}
           addProduct={addProduct} 
           reduceProducts={reduceProducts}/>
       </section>
