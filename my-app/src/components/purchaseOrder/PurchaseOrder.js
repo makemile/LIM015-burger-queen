@@ -1,5 +1,5 @@
 import React from "react";
-
+import './purchaseOrder.css';
 export function PurchaseOrder(props) {
   console.log(props.productsSelected)
   console.log(props.setProductsSelected)
@@ -19,7 +19,7 @@ export function PurchaseOrder(props) {
     //  }
 
     const deleteProduct = (id) => {
-      const productsFilter = props.productsSelected.filter((product) => product.id != id);
+      const productsFilter = props.productsSelected.filter((product) => product.id !== id);
       props.setProductsSelected(productsFilter);
     }
     // console.log(deleteProduct())
@@ -29,23 +29,25 @@ export function PurchaseOrder(props) {
       <table className="table table-borderless">
         <thead>
           <tr>
-            <th scope="col">DETALLE DE LA ORDEN</th>
+            <th scope="col" style={{'font-size': '2.0rem'}}>DETALLE DE LA ORDEN</th>
           </tr>
           <tr>
-            <th scope="col">MESA</th>
+            <th scope="col" style={{'font-size': '1.6rem'}}>MESA</th>
 
-            <th scope="col">
+            <th scope="col" style={{'font-size': '1.6rem'}}>
               CLIENTE<input type="text"></input>
             </th>
           </tr>
           <tr>
-            <th scope="col">CANTIDAD</th>
-            <th scope="col">PRODUCTO</th>
-            <th scope="col">PRECIO</th>
+            <th scope="col" style={{'font-size': '1.6rem'}}>CANTIDAD</th>
+            <th scope="col" style={{'font-size': '1.6rem'}}>PRODUCTO</th>
+            <th scope="col" style={{'font-size': '1.6rem'}}>PRECIO</th>
           </tr>
         </thead>
+        
         <tbody>
           {props.productsSelected.map((product) => (
+            <> 
             <tr key={product.id}>
               <td className="table__cantidad">
                  <div> <button onClick = {() => props.addProduct(product.id)}>+</button></div> 
@@ -63,7 +65,9 @@ export function PurchaseOrder(props) {
                 {/* <button onClick = {() => deleteProduct(product.id)}>borrar</button> */}
                 <button onClick = {() => deleteProduct(product.id)}>borrar</button>
               </td>
-            </tr>   
+            </tr>  
+            <hr></hr>
+            </>
           ))}
         </tbody>
 
