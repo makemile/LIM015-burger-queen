@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db } from '../../utils/firebaseConfig';
+// import { Orders } from '../orders/Orders'
 // import { doc, getDoc } from "firebase/firestore";
 // import { PurchaseOrder } from '../purchaseOrder/PurchaseOrder';
 
@@ -27,49 +28,14 @@ export function Menu(props) {
           setProducts([...arrayProducts]);
         });
     }, []);
-
-    // ------------------ FUNCIÓN PARA AGREGAR PRODUCTO ---------------- //
     
-    // // Data de productos seleccionados
-    // const [productsSelected, setProductsSelected] = useState([]);
-    // console.log(productsSelected, 'productos seleccionados')
-      
-    // const addProduct = async (id) => {
-    //     // Acceder a la data del producto seleccionado
-    //     const productsRef = doc(db, 'Products', id);
-    //     // Traer la data
-    //     const docSnap = await getDoc( productsRef);
-    
-    //     const docData = docSnap.data();
-    
-    //     const dataObj = {
-    //       id: id,
-    //       name: docData.name,
-    //       price: docData.price,
-    //       count: 1
-    //     };
-
-    //     const existInArray = productsSelected.some((product) => product.id === dataObj.id)
-    //     if(existInArray) {
-    //         const products = productsSelected.map((product) => {
-    //             if(product.id === dataObj.id) {
-    //                 product.count = product.count + 1
-    //                 return product
-    //             } else {
-    //                 return product
-    //             }
-    //         }) 
-    //         setProductsSelected([...products]);
-    //     } else {
-    //         setProductsSelected([...productsSelected, dataObj]);
-    //     }
-    // }
-
-
     return (
         <>
         <main className="breakfast-grid">
-            {products.map((product) => (
+
+            {products
+            .filter((product) => product.type === props.type)
+            .map((product) => (
             <div className="container-breakfast" key={product.id}>
                 <div className="content-breakfast">
                 <div className="visual-breakfast">

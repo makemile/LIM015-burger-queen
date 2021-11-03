@@ -2,6 +2,7 @@ import React from "react";
 
 export function PurchaseOrder(props) {
   console.log(props.productsSelected)
+  console.log(props.setProductsSelected)
      // ------------------ FUNCIÓN PARA ELIMINAR PRODUCTO ---------------- //
     //  const deleteProduct = (index) => {
     //      props.productsSelected.map((product, i) => {
@@ -16,8 +17,13 @@ export function PurchaseOrder(props) {
     //        }
     //      })
     //  }
-    
-  
+
+    const deleteProduct = (id) => {
+      const productsFilter = props.productsSelected.filter((product) => product.id != id);
+      props.setProductsSelected(productsFilter);
+    }
+    // console.log(deleteProduct())
+    // setProductsSelected
   return (
     <>
       <table className="table table-borderless">
@@ -43,7 +49,7 @@ export function PurchaseOrder(props) {
             <tr key={product.id}>
               <td className="table__cantidad">
                  <div> <button onClick = {() => props.addProduct(product.id)}>+</button></div> 
-                 <div>
+                 <div className ="div-count">
                   {/* {state.count}  */}
                   {product.count} 
                  </div> 
@@ -55,7 +61,7 @@ export function PurchaseOrder(props) {
               <td className="table__price">
                 <p>${product.price}</p>
                 {/* <button onClick = {() => deleteProduct(product.id)}>borrar</button> */}
-                <button>borrar</button>
+                <button onClick = {() => deleteProduct(product.id)}>borrar</button>
               </td>
             </tr>   
           ))}

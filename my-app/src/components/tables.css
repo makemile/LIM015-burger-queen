@@ -30,3 +30,21 @@ section {
     justify-content: center;
     cursor: pointer;
 }
+.table__cantidad {
+    display: flex;
+    align-items: center;
+}
+.table__cantidad button{
+    width: 30px;
+    height: 30px;
+    margin-right: 2px;
+}
+.table__cantidad .div-count {
+    font-size: 1.5rem;
+    margin-right: 13px;
+    margin-left: 10px;
+}
+
+.table__products {
+    height: 20px;
+}
