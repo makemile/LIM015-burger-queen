@@ -106,6 +106,7 @@ export function Orders() {
          }
      }
 
+
     // ------------------ FUNCIÓN PARA REDUCIR PRODUCTO ---------------- //
     const reduceProducts = async(id) => {
         // Acceder a la data del producto seleccionado
@@ -176,6 +177,7 @@ export function Orders() {
       <section className="purchase-orders-section">
           <PurchaseOrder
           productsSelected={productsSelected}
+          setProductsSelected={setProductsSelected}
           addProduct={addProduct} 
           reduceProducts={reduceProducts}/>
       </section>
