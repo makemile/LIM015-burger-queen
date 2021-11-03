@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db } from '../../utils/firebaseConfig';
+// import { Orders } from '../orders/Orders'
 // import { doc, getDoc } from "firebase/firestore";
 // import { PurchaseOrder } from '../purchaseOrder/PurchaseOrder';
 
@@ -27,14 +28,14 @@ export function Menu(props) {
           setProducts([...arrayProducts]);
         });
     }, []);
-
-
     
     return (
         <>
         <main className="breakfast-grid">
 
-            {products.map((product) => (
+            {products
+            .filter((product) => product.type === props.type)
+            .map((product) => (
             <div className="container-breakfast" key={product.id}>
                 <div className="content-breakfast">
                 <div className="visual-breakfast">
