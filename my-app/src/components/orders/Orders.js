@@ -125,14 +125,12 @@ export function Orders() {
 
         const existInArray = productsSelected.some((product) => product.id === dataObj.id)
         if(existInArray) {
-          // const empty = []
             const products = productsSelected.map((product) => {
                 if(product.id === dataObj.id && product.count > 0) {
                     product.count = product.count - 1
                     return product
                 } else {
                   return product
-                    // return empty
                 }
             }) 
             setProductsSelected([...products]);
