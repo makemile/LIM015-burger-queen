@@ -65,23 +65,6 @@ export function Tables() {
 // ----------------- ESTRUCTURA PARA VISTA DE ORDERS ---------------- //
 
 export function Orders() {
-
-    // Función para botones 
-    // function showAccordingToType(e) {
-    //    const container = document.getElementsByClassName('container-breakfast');
-
-    //     if (e.target.className == 'btn-breakfast') {
-    //         const bf = products.filter((product) => product.type == 'desayuno');
-    //         console.log(bf)
-    //         console.log(container)
-           
-        
-    //     } else if (e.target.className == 'btn-lunch') {
-    //         const lunch = products.filter((product) => product.type == 'almuerzo');
-    //          console.log(lunch)
-             
-    //     }
-    //   }
     
     // ------------------ FUNCIÓN PARA AGREGAR PRODUCTO ---------------- //
 
@@ -153,7 +136,19 @@ export function Orders() {
             setProductsSelected([...productsSelected, dataObj]);
         }
      }
+     
+    //  const [type, setType] = useState([]);
 
+    //  function showAccordingToType(e) {
+    //   if (e.target.className == 'btn-breakfast') {
+    //       const justBreakfast = products.filter((product) => product.type === 'desayuno');
+    //       setType(justBreakfast)
+      
+    //   } else if (e.target.className == 'btn-lunch') {
+    //       const justLunch = products.filter((product) => product.type == 'almuerzo');
+    //       setType(justLunch)     
+    //   }
+    // }
 
     // ------------------ ESTRUCTURA PARA VISTA DE MENU Y DETALLE DE COMPRA ---------------- //
 
@@ -183,7 +178,7 @@ export function Orders() {
 
       {/* SECCION DE PRODUCTOS */}
       <section className="menu-section-breakfast">
-          <Menu addProduct={addProduct} />
+          <Menu addProduct={addProduct}/>
       </section>
 
       {/* TABLA DE DETALLES DE LA ORDEN */}

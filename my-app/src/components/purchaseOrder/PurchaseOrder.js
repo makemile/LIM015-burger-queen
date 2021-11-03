@@ -43,7 +43,7 @@ export function PurchaseOrder(props) {
             <tr key={product.id}>
               <td className="table__cantidad">
                  <div> <button onClick = {() => props.addProduct(product.id)}>+</button></div> 
-                 <div>
+                 <div className ="div-count">
                   {/* {state.count}  */}
                   {product.count} 
                  </div> 
