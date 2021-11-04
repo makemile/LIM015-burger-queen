@@ -4,11 +4,10 @@ import "./App.css";
 import { Switch, Route, BrowserRouter, Redirect } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import { Tables } from "./components/Orders";
 import Cocina from "./components/Cocina";
 import PedidosPorEntregar from "./components/Pedidos_Por_Entregar";
 import PageNotFound from "./components/PageNotFound";
-import { Orders } from '../src/components/orders/Orders'
+import { Tables, Orders } from '../src/components/orders/Orders'
 // import { PurchaseOrder } from './components/PurchaseOrder';
 // import {ProductsLunch, ProductsBurger} from './components/Lunch';
 

@@ -1,7 +1,6 @@
 import React from "react";
-import { useState } from "react";
-// import { db } from "../../utils/firebaseConfig";
-import { db } from "../../utils/firebaseConfig";
+import './purchaseOrder.css';
+
 
 
 
@@ -63,23 +62,25 @@ export function PurchaseOrder(props) {
       <table className="table table-borderless">
         <thead>
           <tr>
-            <th scope="col">DETALLE DE LA ORDEN</th>
+            <th scope="col" style={{'font-size': '2.0rem'}}>DETALLE DE LA ORDEN</th>
           </tr>
           <tr>
-            <th scope="col">MESA</th>
+            <th scope="col" style={{'font-size': '1.6rem'}}>MESA</th>
 
-            <th scope="col">
-              CLIENTE<input type="text"  onChange ={ nameCliente}   ></input>
+            <th scope="col" style={{'font-size': '1.6rem'}}>
+              CLIENTE<input type="text">{nameCliente}</input>
             </th>
           </tr>
           <tr>
-            <th scope="col">CANTIDAD</th>
-            <th scope="col">PRODUCTO</th>
-            <th scope="col">PRECIO</th>
+            <th scope="col" style={{'font-size': '1.6rem'}}>CANTIDAD</th>
+            <th scope="col" style={{'font-size': '1.6rem'}}>PRODUCTO</th>
+            <th scope="col" style={{'font-size': '1.6rem'}}>PRECIO</th>
           </tr>
         </thead>
+        
         <tbody>
           {props.productsSelected.map((product) => (
+            <> 
             <tr key={product.id}>
               <td className="table__cantidad">
                  <div> <button onClick = {() => props.addProduct(product.id)}>+</button></div> 
@@ -97,7 +98,9 @@ export function PurchaseOrder(props) {
                 {/* <button onClick = {() => deleteProduct(product.id)}>borrar</button> */}
                 <button onClick = {() => deleteProduct(product.id)}>borrar</button>
               </td>
-            </tr>   
+            </tr>  
+            <hr></hr>
+            </>
           ))}
         </tbody>
 

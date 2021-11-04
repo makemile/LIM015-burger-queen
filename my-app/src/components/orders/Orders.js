@@ -5,7 +5,7 @@ import Header from '../Header';
 import {Menu} from '../menu/Menu';
 import { PurchaseOrder } from '../purchaseOrder/PurchaseOrder';
 import LinkButton from '../ButtonLink';
-
+import './orders.css';
 // ----------------- ESTRUCTURA PARA VISTA MESAS ---------------- //
 
 export function Tables() {
@@ -182,7 +182,7 @@ export function Orders() {
       </section>
 
       {/* SECCION DE PRODUCTOS */}
-      <section className="menu-section-breakfast">
+      <section className="menu-section-products">
           <Menu addProduct={addProduct} type={type}/>
       </section>
 

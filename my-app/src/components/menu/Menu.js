@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db } from '../../utils/firebaseConfig';
-// import { Orders } from '../orders/Orders'
+import'./menu.css'
 // import { doc, getDoc } from "firebase/firestore";
 // import { PurchaseOrder } from '../purchaseOrder/PurchaseOrder';
 
@@ -33,26 +33,26 @@ export function Menu(props) {
     
     return (
         <>
-        <main className="breakfast-grid">
+        <main className="product-grid">
 
             {products
             .filter((product) => product.type === props.type)
             .map((product) => (
-            <div className="container-breakfast" key={product.id}>
-                <div className="content-breakfast">
-                <div className="visual-breakfast">
-                    <figure className="breakfast-figure">
+            <div className="container-product" key={product.id}>
+                <div className="content-product">
+                <div className="visual-product">
+                    <figure className="product-figure">
                     <img
                         className="product-img"
                         src={product.img}
                         alt={product.name}
                     />
-                    <span className="breakfast-price">
+                    <span className="product-price">
                         <strong>S/.{product.price}.00</strong>
                     </span>
                     </figure>
                 </div>
-                <div className="breakfast-details">
+                <div className="product-details">
                     <h3>{product.name}</h3>
                 </div>
 
