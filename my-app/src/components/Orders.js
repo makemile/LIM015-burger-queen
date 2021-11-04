@@ -30,18 +30,41 @@ export function Tables() {
           let status = doc.data().status;
           let obj = { id, name, status };
           Table.push(obj);
-          console.log(obj);
+          // console.log(obj);
         });
         setData([...Table]);
       });
   }, []);
+  
+  
+  const [tableselect, setTableSelect] = useState('');
+  
+  
+  
+  const ClickOrders = (id) => {
 
-  const ClickOrders = async (id) => {
+    useEffect(()=> {
+      setTableSelect(id)
+    })
+    console.log(id)
+    updateTable (id)
+     
+     console.log(tableselect)
+    //  const statusRef = doc(db, "Table", id);
+    //  await updateDoc(statusRef, {
+    //    status: false,
+    //  });
+    
+   };
+
+  async function updateTable (id) {
     const statusRef = doc(db, "Table", id);
     await updateDoc(statusRef, {
       status: false,
     });
-  };
+
+  }
+  
 
   return (
     <>
@@ -192,6 +215,7 @@ export function Products() {
             dataBreakfast={dataBreakfast}
             dataBurger={dataBurger}
             dataLunch={dataLunch}
+            // tableselect = {tableselect}
           />
         </section>
       </main>

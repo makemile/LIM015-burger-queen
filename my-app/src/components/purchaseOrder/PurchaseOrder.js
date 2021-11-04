@@ -1,29 +1,63 @@
 import React from "react";
+import { useState } from "react";
+// import { db } from "../../utils/firebaseConfig";
+import { db } from "../../utils/firebaseConfig";
+
+
 
 export function PurchaseOrder(props) {
-  console.log(props.productsSelected)
-  console.log(props.setProductsSelected)
-     // ------------------ FUNCIÓN PARA ELIMINAR PRODUCTO ---------------- //
-    //  const deleteProduct = (index) => {
-    //      props.productsSelected.map((product, i) => {
-    //        if(product.id === index) { 
-    //          if(product.count === 1) {
-    //            const deleteId = props.productsSelected.filter((product) => product.id !== index)
-    //            props.productsSelected(deleteId)
-    //             console.log(deleteId)
-    //          } else {
-    //            product.count = product.count - 1;
-    //          }
-    //        }
-    //      })
-    //  }
+   console.log(props, 4)
+  
 
+  const [name, setName] = useState('');
+  
+  function nameCliente (e) {
+   const name = e.target.value
+   setName(name);
+  }
+
+  //({
+  
+    // const newCollectionObjOrder = {
+    //   name: name,
+    //   order: props.productsSelected,
+    //   total: props.productsSelected.reduce((sum, product) => sum + Number(product.price) * Number(product.count),0)
+    // } 
+
+    // if(newCollectionObjOrder.total !== 0){
+    //   db.collection('order').add(newCollectionObjOrder)
+    // }
+
+
+    function confirmarpedido(){
+      const newCollectionObjOrder = {
+        // table: props.tableselect,
+        name: name,
+        order: props.productsSelected,
+        total: props.productsSelected.reduce((sum, product) => sum + Number(product.price) * Number(product.count),0)
+      } 
+      if(newCollectionObjOrder.total !== 0){
+        db.collection('order').add(newCollectionObjOrder)
+      }
+    }
+      
+  // }).then((docRef) => {
+  //   console.log("Document written with ID: ", docRef.id)
+  // }).catch((err) => {
+  //   console.error("Error adding document: ", err);
+  // })
+  
+ 
+ 
+    // console.log(newCollectionObjOrder);
+    
     const deleteProduct = (id) => {
-      const productsFilter = props.productsSelected.filter((product) => product.id != id);
+      const productsFilter = props.productsSelected.filter((product) => product.id !== id);
       props.setProductsSelected(productsFilter);
     }
-    // console.log(deleteProduct())
-    // setProductsSelected
+  
+
+  
   return (
     <>
       <table className="table table-borderless">
@@ -35,7 +69,7 @@ export function PurchaseOrder(props) {
             <th scope="col">MESA</th>
 
             <th scope="col">
-              CLIENTE<input type="text"></input>
+              CLIENTE<input type="text"  onChange ={ nameCliente}   ></input>
             </th>
           </tr>
           <tr>
@@ -73,11 +107,11 @@ export function PurchaseOrder(props) {
           </div>
           <div className="row max-4">
             <div className="col d-flex justify content-end">
-              <button type="button" className="confirmer-order">
+              <button type="button" className="confirmer-order" onClick = {confirmarpedido} >
                 confirmar
               </button>
               <button type="button" className="reject-order">
-                anular
+                cancelar
               </button>
             </div>
           </div>

@@ -10,6 +10,8 @@ import LinkButton from '../ButtonLink';
 
 export function Tables() {
   const [data, setData] = useState([]);
+  
+  // console.log(tableselect)
   // const [status, setData] = useState([]);
   useEffect(() => {
     db.collection("Table")
@@ -23,18 +25,28 @@ export function Tables() {
           let status = doc.data().status;
           let obj = { id, name, status };
           Table.push(obj);
-          console.log(obj);
+          
+          // console.log(obj);
         });
         setData([...Table]);
       });
   }, []);
 
+  
+
   const ClickOrders = async (id) => {
+    console.log(id);
+    // setTableSelect(id);
+    // console.log(tableselect)
     const statusRef = doc(db, "Table", id);
     await updateDoc(statusRef, {
       status: false,
     });
+    
   };
+  
+
+
 
   return (
     <>
@@ -76,6 +88,8 @@ export function Orders() {
 
        
      const addProduct = async (id) => {
+
+      console.log('addProducts')
          // Acceder a la data del producto seleccionado
          const productsRef = doc(db, 'Products', id);
          // Traer la data
@@ -101,6 +115,7 @@ export function Orders() {
                  }
              }) 
              setProductsSelected([...products]);
+             console.log()
          } else {
              setProductsSelected([...productsSelected, dataObj]);
          }
@@ -139,7 +154,7 @@ export function Orders() {
         }
      }
     
-
+//------------------------------CREANDO COLECCION-----------------------------------//
     // ------------------ ESTRUCTURA PARA VISTA DE MENU Y DETALLE DE COMPRA ---------------- //
 
     return (
@@ -177,7 +192,8 @@ export function Orders() {
           productsSelected={productsSelected}
           setProductsSelected={setProductsSelected}
           addProduct={addProduct} 
-          reduceProducts={reduceProducts}/>
+          reduceProducts={reduceProducts}
+            />
       </section>
     </main>
   </>
