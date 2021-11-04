@@ -1,5 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import './purchaseOrder.css';
+import {db} from '../../utils/firebaseConfig'
+
+
 
 
 
@@ -68,7 +71,11 @@ export function PurchaseOrder(props) {
             <th scope="col" style={{'font-size': '1.6rem'}}>MESA</th>
 
             <th scope="col" style={{'font-size': '1.6rem'}}>
-              CLIENTE<input type="text">{nameCliente}</input>
+            <label>
+            Cliente:
+            <input type="text"  onChange= {nameCliente}   />
+            </label>
+              
             </th>
           </tr>
           <tr>
