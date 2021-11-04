@@ -7,6 +7,8 @@ import'./menu.css'
 export function Menu(props) {
     // Data de productos
     const [products, setProducts] = useState([]);
+   
+    // console.log(productsSelected, 'productos seleccionados')
 
     useEffect(() => {
       db.collection("Products")
