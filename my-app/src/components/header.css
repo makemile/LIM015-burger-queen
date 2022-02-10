@@ -1,0 +1,64 @@
+html {
+  font-family: "Montserrat";
+  margin: 1em 20%;
+}
+header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: #5C1E0B;
+}
+.logoheader {
+  width: 50px;
+  height: 53px;
+  float: left;
+  margin-top: 8px;
+  /* font-size: 3em; */
+  padding: 0.4em;
+  text-decoration: none;
+  color: #333;
+  border-right: 1px solid #e3e3e8;
+  transition: 0.5s all;
+}
+.logoheader:hover {
+  background-color: #fa1e00;
+}
+nav {
+  float: left;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 1.8em 2em;
+  padding-top: 3em;
+}
+nav ul li {
+  display: inline;
+  padding: 0 0.4em;
+  padding-right: 1.5rem;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.6em;
+  padding-bottom: 1em;
+  transition: 0.5s color;
+  font-weight: 700;
+  padding-right: 1.5rem;
+}
+nav ul li .home {
+  border-bottom: 10px solid #fa1e00;
+}
+nav ul li .table {
+  border-bottom: 10px solid #ff8823;
+}
+nav ul li .kitchen {
+  border-bottom: 10px solid #00892f;
+}
+nav ul li .orders {
+  border-bottom: 10px solid #f8eada;
+}

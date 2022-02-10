@@ -1,0 +1,44 @@
+html {
+  font-family: "Montserrat";
+  background-color: rgba(92, 30, 11, 1); 
+}
+.home__containt {
+  height: 650px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+figure {
+  margin-right: 150px;
+}
+
+figure img {
+  width: 250px;
+  height: auto;
+}
+.logoHome {
+  width: 190px;
+  height: auto;
+}
+.button__options {
+  display: flex;
+  flex-direction: column;
+}
+.btn-orden,
+.btn-chef {
+  font-weight: bold;
+  width: 250px;
+  height: 110px;
+  background-color: rgba(248, 234, 218, 1);
+  border-radius: 20px;
+  color: rgba(255, 136, 35, 1);
+  cursor: pointer;
+  font-size: 3.0rem;
+  border: none;
+  margin-bottom: 35px;
+  font-family: 'Montserrat', sans-serif;
+}
+
